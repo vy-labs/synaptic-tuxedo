@@ -39,12 +39,11 @@ const output = {
 };
 
 const resolve = {
-  modules: [
-    path.resolve(__dirname, 'src')
-  ],
+  modules: ['node_modules', path.resolve(__dirname, 'src')],
   extensions: ['.js', '.jsx'],
   alias: {
-    tuxedo: path.resolve(__dirname, 'src')
+    tuxedo: path.resolve(__dirname, 'src'),
+    theme: path.resolve(__dirname, 'theme')
   }
 };
 
@@ -108,13 +107,7 @@ const lessLoader = {
 };
 
 const module = {
-  rules: [
-    babelLoader,
-    imageLoader,
-    fontFilesLoader,
-    svgLoader,
-    lessLoader
-  ]
+  rules: [babelLoader, imageLoader, fontFilesLoader, svgLoader, lessLoader]
 };
 
 const plugins = [
@@ -123,7 +116,6 @@ const plugins = [
     chunkFilename: isDev ? '[name].css' : '[name].[id].[contenthash].css'
   })
 ];
-
 
 const webpackConfig = {
   mode,
