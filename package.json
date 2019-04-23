@@ -1,5 +1,5 @@
 {
-  "name": "tuxedo",
+  "name": "synaptic-tuxedo",
   "version": "0.0.1",
   "description": "Component library by Synaptic",
   "keywords": [
@@ -19,7 +19,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --ci --bail",
+    "jest:dev": "NODE_ENV=test jest --no-cache --watch --runInBand",
     "dev": "start-storybook -p 3003",
     "production": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail"
   },
@@ -69,6 +70,7 @@
     "babel-preset-minify": "^0.5.0",
     "babel-runtime": "^6.26.0",
     "circular-dependency-plugin": "^5.0.2",
+    "core-js": "3",
     "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -108,6 +110,32 @@
     "webpack": "^4.20.2",
     "webpack-dev-server": "^3.1.9",
     "yargs": "7.0.2"
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "modulePaths": [
+      "<rootDir>/src/"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "svg-inline-react": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "^tuxedo(.*)$": "<rootDir>/src$1"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/enzymeSetupFile.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/(?:.+?)",
+      "<rootDir>/tests/",
+      "<rootDir>/build/",
+      "<rootDir>/(?:.+?)/stubs/(?:.+?)"
+    ]
   },
   "husky": {
     "hooks": {

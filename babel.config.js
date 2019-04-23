@@ -1,10 +1,12 @@
 module.exports = {
-  presets : [
+  presets: [
     [
       '@babel/preset-env',
       {
-        targets: '>0.35%, not op_mini >= 0, not and_chr > 0, not and_uc > 0, not android > 0, not opera > 0, not samsung > 0, not op_mini > 0, not op_mob > 0, not ie 11',
-        useBuiltIns: 'usage'
+        targets:
+          '>0.35%, not op_mini >= 0, not and_chr > 0, not and_uc > 0, not android > 0, not opera > 0, not samsung > 0, not op_mini > 0, not op_mob > 0, not ie 11',
+        useBuiltIns: 'usage',
+        corejs: 3
         // 'debug': process.env.NODE_ENV === 'development'
       }
     ],
@@ -19,10 +21,13 @@ module.exports = {
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-class-properties',
-    ['import', {
-      libraryName: 'antd',
-      style: true
-    }],
+    [
+      'import',
+      {
+        libraryName: 'antd',
+        style: true
+      }
+    ],
     process.env.NODE_ENV === 'development' && 'react-hot-loader/babel'
   ].filter(p => p)
 };

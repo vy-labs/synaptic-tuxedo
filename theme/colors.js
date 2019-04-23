@@ -163,21 +163,26 @@ const palette = {
   transparent: 'transparent'
 };
 
+const text = {
+  dark: palette.black[7],
+  medium: palette.black[3],
+  light: palette.grey[8],
+  red: palette.red[7],
+  blue: palette.blue[7],
+  green: palette.green[7],
+  yellow: palette.yellow[7],
+  disabled: palette.grey[6],
+  white: palette.white
+};
+
 const colors = {
   ...palette,
-  shadow: palette.black[8],
-  text: {
-    dark: palette.black[7],
-    medium: palette.black[3],
-    light: palette.grey[8],
-    red: palette.red[7],
-    blue: palette.blue[7],
-    green: palette.green[7],
-    yellow: palette.yellow[7],
-    disabled: palette.grey[6],
-    white: palette.white
+  text,
+  fontIcon: {
+    ...text,
+    blue: palette.blue[6]
   },
-
+  shadow: palette.black[8],
   tags: {
     clickableText: palette.blue[7],
     text: palette.black[7],
