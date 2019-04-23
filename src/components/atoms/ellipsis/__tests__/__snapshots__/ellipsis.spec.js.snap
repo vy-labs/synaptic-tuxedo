@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - Ellipsis> - Rendering Renders a span element 1`] = `
+.c0 {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+<span
+  className="c0"
+>
+  Synaptic Ellipsis render test
+</span>
+`;
+
+exports[`<Atoms - Ellipsis> - Rendering Space support 1`] = `
+.c0 {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+<span
+  className="c0"
+>
+  Synaptic Ellipsis render test
+</span>
+`;
+
+exports[`<Atoms - Ellipsis> - Rendering TextAlign support 1`] = `
+.c0 {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+}
+
+<span
+  className="c0"
+>
+  Synaptic Ellipsis render test
+</span>
+`;
+
+exports[`<Atoms - Ellipsis> - Rendering Width support 1`] = `
+.c0 {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: 100px;
+  max-width: 200px;
+}
+
+<span
+  className="c0"
+  minWidth={50}
+>
+  Synaptic Ellipsis render test
+</span>
+`;

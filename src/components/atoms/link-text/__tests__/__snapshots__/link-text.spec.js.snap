@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - LinkText> - Rendering Renders a LinkText element 1`] = `
+.c0 {
+  color: #0064D0;
+  cursor: pointer;
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<span
+  className="c0 "
+>
+  Synaptic FlexBox render test
+</span>
+`;

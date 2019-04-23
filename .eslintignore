@@ -1,0 +1,3 @@
+src/lib
+src/**/*stories*
+src/**/__tests__

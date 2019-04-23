@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tuxedo_AntdExtensions - Menu - Rendering Default Menu 1`] = `
+.c0.ant-menu {
+  padding: px;
+}
+
+.c0.ant-dropdown-menu {
+  padding: 8px;
+}
+
+.c1 {
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+<ul
+  className="ant-menu c0 ant-menu-light ant-menu-root ant-menu-vertical"
+  role="menu"
+  style={Object {}}
+>
+  <li
+    aria-disabled={undefined}
+    className="ant-menu-item c1"
+    onBlur={undefined}
+    onClick={[Function]}
+    onContextMenu={undefined}
+    onFocus={undefined}
+    onMouseDown={undefined}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onTouchStart={undefined}
+    role="menuitem"
+    style={Object {}}
+    title={undefined}
+  >
+    Navigation One
+  </li>
+  <li
+    aria-disabled={undefined}
+    className="ant-menu-item c1"
+    onBlur={undefined}
+    onClick={[Function]}
+    onContextMenu={undefined}
+    onFocus={undefined}
+    onMouseDown={undefined}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onTouchStart={undefined}
+    role="menuitem"
+    style={Object {}}
+    title={undefined}
+  >
+    Navigation test
+  </li>
+  <li
+    aria-disabled={true}
+    className="ant-menu-item c1 ant-menu-item-disabled"
+    onBlur={undefined}
+    onClick={null}
+    onContextMenu={undefined}
+    onFocus={undefined}
+    onMouseDown={undefined}
+    onMouseEnter={null}
+    onMouseLeave={null}
+    onTouchStart={undefined}
+    role="menuitem"
+    style={Object {}}
+    title={undefined}
+  >
+    Navigation Two
+  </li>
+</ul>
+`;
