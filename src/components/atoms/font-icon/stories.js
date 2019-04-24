@@ -2,11 +2,14 @@ import React from 'react';
 import { FontIcon, Box } from 'tuxedo';
 import { withInfo } from '@storybook/addon-info';
 import fontIconsDemo from './font-icons-demo';
-import './story.css';
+import './story.less';
 
 function story() {
   return (
-    <Box dangerouslySetInnerHTML={{ __html: fontIconsDemo }}></Box>
+    <Box
+      className='font-icon-stories'
+      dangerouslySetInnerHTML={{ __html: fontIconsDemo }}
+    />
   );
 }
 
