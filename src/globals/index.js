@@ -4,7 +4,7 @@ import IcoMoonTTF from '../assets/font-icons/fonts/icomoon.ttf';
 import IcoMoonEOT from '../assets/font-icons/fonts/icomoon.eot';
 import IcoMoonWOFF from '../assets/font-icons/fonts/icomoon.woff';
 
-import Theme from '../../theme';
+import Theme from 'theme';
 import '../assets/font-icons/style.css';
 
 export default props =>

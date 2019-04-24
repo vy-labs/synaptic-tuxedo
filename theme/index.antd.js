@@ -1,5 +1,5 @@
-import Theme from './';
 import { rgba } from 'polished';
+import Theme from './';
 
 const { colors, radii, fontSizes, fonts, space, shadows, iconSizes } = Theme;
 
@@ -60,9 +60,8 @@ const padding = {
   'padding-lg': `${space[6]}px`, // containers
   'padding-md': `${space[4]}px`, // small containers and buttons
   'padding-sm': `${space[3]}px`, // Form controls and items
-  'padding-xs': `${space[2]}px`  // small items
+  'padding-xs': `${space[2]}px` // small items
 };
-
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -183,7 +182,6 @@ const checkbox = {
   // 'checkbox-size': `${iconSizes[1]}px`,
   'checkbox-color': colors.blue[6]
 };
-
 
 // // Slider
 // // ---

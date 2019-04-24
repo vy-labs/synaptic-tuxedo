@@ -8,11 +8,8 @@ const Provider = ({ children }) => {
   // Injecting globals here.
   Globals({ theme });
 
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  );
+  console.log('Theme=-=-=-=-=-=-=-=-=-', theme);
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 Provider.propTypes = {

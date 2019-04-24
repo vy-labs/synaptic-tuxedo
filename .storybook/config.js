@@ -10,8 +10,7 @@ import { setDefaults } from '@storybook/addon-info';
 function loadStories() {
   require('tuxedo/components/atoms/stories.js');
   require('../src/components/antd-extensions/stories.js');
-  // require('../src/components/components/stories.js');
-  // require('../src/chart/stories.js');
+  require('../src/components/components/stories.js');
 }
 
 // addDecorator(withKnobs);
@@ -31,6 +30,7 @@ addParameters({
   }
 });
 
+addDecorator(story => <Provider>{story()}</Provider>);
 addDecorator(story => <div style={{ padding: '20px' }}>{story()}</div>);
 
 configure(loadStories, module);

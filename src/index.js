@@ -25,7 +25,7 @@ export { default as Button } from './components/antd-extensions/button';
 export { default as Carousel } from './components/antd-extensions/carousel';
 export { default as Checkbox } from './components/antd-extensions/checkbox';
 export { default as Dropdown } from './components/antd-extensions/dropdown';
-// export { default as Input } from './components/antd-extensions/input';
+export { default as Input } from './components/antd-extensions/input';
 export { default as Menu } from './components/antd-extensions/menu';
 // export { default as Modal } from './components/antd-extensions/modal';
 export { default as Popconfirm } from './components/antd-extensions/popconfirm';
@@ -44,3 +44,41 @@ export {
 } from './components/antd-extensions/notification';
 export { default as Message } from './components/antd-extensions/message';
 export { default as Collapse } from './components/antd-extensions/collapse';
+
+/**
+ * Components
+ */
+export { default as AppIcon } from './components/components/app-icon';
+export { default as Chip } from './components/components/chip';
+export { default as Filter } from './components/components/filter';
+export { default as Tabs } from './components/components/tabs';
+export { default as NavHeader } from './components/components/nav-header';
+export { default as Status } from './components/components/status';
+export { default as Rating } from './components/components/rating';
+export { default as CloseIcon } from './components/components/close-icon';
+export {
+  default as CompareCalendar
+} from './components/components/compare-calendar';
+export {
+  default as ContentDropdown
+} from './components/components/content-dropdown';
+export { default as Dot } from './components/components/dot';
+export { default as ErrorMessage } from './components/components/error-message';
+export {
+  default as GroupedMultiSelect
+} from './components/components/grouped-multi-select';
+export { default as Histogram } from './components/components/histogram';
+export { default as IconedFilter } from './components/components/iconed-filter';
+export { default as Img } from './components/components/img';
+export { default as MultiSelect } from './components/components/multi-select';
+export { default as NameIcon } from './components/components/name-icon';
+export {
+  default as RangeSelector
+} from './components/components/range-selector';
+export { default as Slider } from './components/components/slider';
+export { default as Sorter } from './components/components/sorter';
+export { default as Ticker } from './components/components/ticker';
+export { default as TreeSelect } from './components/components/tree-select';
+export {
+  default as EntityLockedPanel
+} from './components/components/entity-locked-panel';

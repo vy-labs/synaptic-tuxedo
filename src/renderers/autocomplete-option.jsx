@@ -1,27 +1,27 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
-import { safeGet, isValidPath } from 'utils/stringUtils';
+import { safeGet, isValidPath } from 'tuxedo/utils/stringUtils';
 import styled from 'styled-components';
 
 import FlexBox from '../components/atoms/flexbox';
 import Ellipsis from '../components/atoms/ellipsis';
 import Ticker from '../components/components/ticker';
 import AppIcon from '../components/components/app-icon';
-import SvgIcon from '../components/components/svg-icon';
+// import SvgIcon from '../components/components/svg-icon';
 
 const { Option } = AutoComplete;
 
 /* eslint-disable react/prop-types */
 
 function renderStoreIcon(storeType) {
-  if (storeType) {
-    if (storeType === 'app_store') {
-      return <SvgIcon type='appstore' height={2} />;
-    }
-    if (storeType === 'play_store') {
-      return <SvgIcon type='playstore' height={2} />;
-    }
-  }
+  // if (storeType) {
+  //   if (storeType === 'app_store') {
+  //     return <SvgIcon type='appstore' height={2} />;
+  //   }
+  //   if (storeType === 'play_store') {
+  //     return <SvgIcon type='playstore' height={2} />;
+  //   }
+  // }
   return null;
 }
 
@@ -133,16 +133,18 @@ export function renderEntityAutoCompleteOptions(props) {
     ];
   }
 
-  return dataSource.map(opt => renderEntityAutoCompleteOption({
-    opt,
-    namePath,
-    logoPath,
-    tickerPath,
-    searchLoading,
-    valuePath,
-    storeTypePath,
-    width
-  }));
+  return dataSource.map(opt =>
+    renderEntityAutoCompleteOption({
+      opt,
+      namePath,
+      logoPath,
+      tickerPath,
+      searchLoading,
+      valuePath,
+      storeTypePath,
+      width
+    })
+  );
 }
 
 export default function renderAutoCompleteOptions(props) {
@@ -164,15 +166,17 @@ export default function renderAutoCompleteOptions(props) {
       </Option>
     ];
   }
-  return dataSource.map(opt => renderAutocompleteOption({
-    opt,
-    namePath,
-    logoPath,
-    storeTypePath,
-    tickerPath,
-    searchLoading,
-    valuePath
-  }));
+  return dataSource.map(opt =>
+    renderAutocompleteOption({
+      opt,
+      namePath,
+      logoPath,
+      storeTypePath,
+      tickerPath,
+      searchLoading,
+      valuePath
+    })
+  );
 }
 
 /* eslint-enable react/prop-types */

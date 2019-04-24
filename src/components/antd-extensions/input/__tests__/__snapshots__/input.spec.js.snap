@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tuxedo_AntdExtensions - Input - Rendering Renders correctly 1`] = `
+<span
+  className="ant-input-affix-wrapper"
+  style={undefined}
+>
+  <input
+    className="ant-input"
+    disabled={false}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={null}
+    type="text"
+    value=""
+  />
+</span>
+`;
+
+exports[`Tuxedo_AntdExtensions - Input - Rendering Should not render cross 1`] = `
+<span
+  className="ant-input-affix-wrapper"
+  style={undefined}
+>
+  <input
+    className="ant-input"
+    disabled={false}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={null}
+    type="text"
+    value="1234"
+  />
+</span>
+`;
+
+exports[`Tuxedo_AntdExtensions - Input - Rendering Should render cross 1`] = `
+.c1 {
+  display: inline-block;
+  font-size: 12px;
+  color: undefined;
+}
+
+.c0 {
+  cursor: pointer;
+  -webkit-transition: color ease-in .3s;
+  transition: color ease-in .3s;
+  color: #858E9D;
+}
+
+.c0:hover {
+  color: #0F213F;
+}
+
+<span
+  className="ant-input-affix-wrapper"
+  style={undefined}
+>
+  <input
+    className="ant-input"
+    disabled={false}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={null}
+    type="text"
+    value="1234"
+  />
+  <span
+    className="ant-input-suffix"
+  >
+    <span
+      className="c0 icon-Cross c1"
+      color="black"
+      onClick={[Function]}
+      size={1}
+    />
+  </span>
+</span>
+`;
+
+exports[`Tuxedo_AntdExtensions - Input - Rendering SuffixRenderer - searchLoading 1`] = `
+.c0 {
+  font-weight: 600;
+}
+
+<span
+  className="ant-input-affix-wrapper"
+  style={undefined}
+>
+  <input
+    className="ant-input"
+    disabled={false}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={null}
+    type="text"
+    value=""
+  />
+  <span
+    className="ant-input-suffix"
+  >
+    <i
+      className="anticon anticon-loading c0"
+      variant="default"
+    >
+      <svg
+        aria-hidden="true"
+        className="anticon-spin"
+        data-icon="loading"
+        fill="currentColor"
+        height="1em"
+        onClick={undefined}
+        style={undefined}
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+        />
+      </svg>
+    </i>
+  </span>
+</span>
+`;
+
+exports[`Tuxedo_AntdExtensions - Input - Rendering SuffixRenderer with showSearch 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 16px;
+}
+
+<span
+  className="ant-input-affix-wrapper"
+  style={undefined}
+>
+  <input
+    className="ant-input"
+    disabled={false}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={null}
+    type="text"
+    value=""
+  />
+  <span
+    className="ant-input-suffix"
+  >
+    <span
+      className=" icon-Search c0"
+      size={2}
+    />
+  </span>
+</span>
+`;
+
+exports[`Tuxedo_AntdExtensions - Input - Rendering SuffixRenderer without searchLoading 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 16px;
+}
+
+<span
+  className="ant-input-affix-wrapper"
+  style={undefined}
+>
+  <input
+    className="ant-input"
+    disabled={false}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={null}
+    type="text"
+    value=""
+  />
+  <span
+    className="ant-input-suffix"
+  >
+    <span
+      className=" icon-Search c0"
+      size={2}
+    />
+  </span>
+</span>
+`;

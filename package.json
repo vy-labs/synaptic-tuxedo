@@ -21,7 +21,7 @@
   "scripts": {
     "test": "jest --ci --bail",
     "jest:dev": "NODE_ENV=test jest --no-cache --watch --runInBand",
-    "dev": "start-storybook -p 3003",
+    "start": "start-storybook -p 3003",
     "production": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail"
   },
   "peerDependencies": {
@@ -34,6 +34,7 @@
     "classnames": "2.2.5",
     "clean-tag": "2.0.3",
     "hoist-non-react-statics": "3.2.1",
+    "js-search": "1.4.2",
     "lodash": "^4.17.11",
     "moment": "2.20.x",
     "polished": "1.9.3",
