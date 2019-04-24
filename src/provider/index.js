@@ -7,8 +7,6 @@ import theme from '../../theme';
 const Provider = ({ children }) => {
   // Injecting globals here.
   Globals({ theme });
-
-  console.log('Theme=-=-=-=-=-=-=-=-=-', theme);
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

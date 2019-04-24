@@ -22,7 +22,7 @@
     "test": "jest --ci --bail",
     "jest:dev": "NODE_ENV=test jest --no-cache --watch --runInBand",
     "start": "start-storybook -p 3003",
-    "production": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail"
+    "build": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail"
   },
   "peerDependencies": {
     "react": "16.8.6",

@@ -108,6 +108,7 @@ exports[`Tuxedo_AntdExtensions - Input - Rendering SuffixRenderer - searchLoadin
         className="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         onClick={undefined}
         style={undefined}
