@@ -16,10 +16,13 @@ export { default as View } from './components/atoms/layout/view';
 export { default as ViewHeader } from './components/atoms/layout/view-header';
 export { default as ViewContent } from './components/atoms/layout/view-content';
 
+/**
+ * Antd Extenisons
+ */
 export { default as AntdIcon } from './components/antd-extensions/antd-icon';
-// export {
-//   default as AutoComplete
-// } from './components/antd-extensions/autocomplete';
+export {
+  default as AutoComplete
+} from './components/antd-extensions/autocomplete';
 export { default as Button } from './components/antd-extensions/button';
 // export { default as Card } from './components/antd-extensions/card';
 export { default as Carousel } from './components/antd-extensions/carousel';
@@ -75,7 +78,6 @@ export {
   default as RangeSelector
 } from './components/components/range-selector';
 export { default as Slider } from './components/components/slider';
-export { default as Ticker } from './components/components/ticker';
 export { default as TreeSelect } from './components/components/tree-select';
 export {
   default as EntityLockedPanel

@@ -9,11 +9,17 @@ function onChange(e) {
 function story() {
   return (
     <React.Fragment>
-      <Checkbox onChange={onChange}>Checkbox</Checkbox>
-      <Checkbox checked='true' onChange={onChange} color='red'>Checkbox</Checkbox>
-      <Checkbox onChange={onChange} color='green'>Checkbox</Checkbox>
+      <Checkbox checked onChange={onChange}>
+        Checkbox
+      </Checkbox>
+      <Checkbox onChange={onChange} color='red'>
+        Checkbox
+      </Checkbox>
+      <Checkbox onChange={onChange} color='green'>
+        Checkbox
+      </Checkbox>
     </React.Fragment>
-  )
+  );
 }
 
 export default withInfo({

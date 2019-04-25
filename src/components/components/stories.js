@@ -20,7 +20,6 @@ import imgStories from './img/stories';
 import closeIconStories from './close-icon/stories';
 import chipStories from './chip/stories';
 import nameIconStories from './name-icon/stories';
-import tickerStories from './ticker/stories';
 
 const storiesArr = [
   {
@@ -82,10 +81,6 @@ const storiesArr = [
   {
     heading: 'Name Icon',
     componentStories: nameIconStories
-  },
-  {
-    heading: 'Ticker',
-    componentStories: tickerStories
   },
   {
     heading: 'Error Message',

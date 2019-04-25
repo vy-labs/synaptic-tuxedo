@@ -120,5 +120,5 @@ const StyledChip = cleanComponentProps(FlexBox, [
       : '';
   }}
 `;
-
+StyledChip.displayName = 'Chip';
 export default StyledChip;

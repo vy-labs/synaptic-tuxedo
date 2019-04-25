@@ -9,8 +9,8 @@ import { setDefaults } from '@storybook/addon-info';
 
 function loadStories() {
   require('tuxedo/components/atoms/stories.js');
-  require('../src/components/antd-extensions/stories.js');
-  require('../src/components/components/stories.js');
+  require('tuxedo/components/antd-extensions/stories.js');
+  require('tuxedo/components/components/stories.js');
 }
 
 // addDecorator(withKnobs);

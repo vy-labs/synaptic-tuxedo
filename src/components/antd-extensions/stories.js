@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-// import autoCompleteStories from './autocomplete/stories';
+import autoCompleteStories from './autocomplete/stories';
 // import tableStories from './table/stories';
 import tooltipStories from './tooltip/stories';
 import popoverStories from './popover/stories';
@@ -36,6 +36,10 @@ import antdIconStories from './antd-icon/stories';
 // },
 
 const storiesArr = [
+  {
+    heading: 'AutoComplete',
+    componentStories: autoCompleteStories
+  },
   {
     heading: 'Antd Icon',
     componentStories: antdIconStories
