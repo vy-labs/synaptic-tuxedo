@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { DATE_FORMAT } from 'tuxedo/constants';
 import { getMonthDates } from 'tuxedo/utils/dateHelpers';
 import { themeGet } from 'styled-system';
 import { SingleEntity, RollupHeader, getRows } from '../shared';
@@ -14,7 +15,7 @@ const StyledRowContainer = styled(FlexBox)`
 `;
 
 function getDayFromDateString(dateString) {
-  const momentDate = moment(dateString, 'YYYY-MM-DD');
+  const momentDate = moment(dateString, DATE_FORMAT);
   return momentDate.date();
 }
 
@@ -43,7 +44,7 @@ class DailyRollup extends React.Component {
   onSelection(date) {
     return () => {
       const { onSelection, weekly } = this.props;
-      let selectedDate = moment(date, 'YYYY-MM-DD');
+      let selectedDate = moment(date, DATE_FORMAT);
       if (weekly) {
         selectedDate = selectedDate.startOf('week');
       }
@@ -73,12 +74,12 @@ class DailyRollup extends React.Component {
   itemRenderer(allDays) {
     return i => {
       const { value, min, max, weekly } = this.props;
-      const currentDayMoment = moment(allDays[i].date, 'YYYY-MM-DD');
+      const currentDayMoment = moment(allDays[i].date, DATE_FORMAT);
       let active;
       if (weekly) {
         active = isTheDayInSameWeek(currentDayMoment, value);
       } else {
-        active = moment(allDays[i].date).isSame(value.format('YYYY-MM-DD'));
+        active = moment(allDays[i].date).isSame(value.format(DATE_FORMAT));
       }
 
       const disabled =
