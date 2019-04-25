@@ -115,7 +115,7 @@ const story = () => {
     <div>
       <Box my={4}>
         <Text fontSize={3}> Multiple dropdowns </Text>
-        <IconedFilter iconType='twitterSVG'>
+        <IconedFilter iconType='icon-Logomark'>
           <MenuIconedFilter />
           <MenuIconedFilter />
           <MenuIconedFilter />
@@ -125,13 +125,13 @@ const story = () => {
       </Box>
       <Box my={4}>
         <Text fontSize={3}> Single dropdown </Text>
-        <IconedFilter iconType='twitterSVG'>
+        <IconedFilter iconType='icon-Logomark'>
           <MenuIconedFilter />
         </IconedFilter>
       </Box>
       <Box my={4}>
         <Text fontSize={3}> Custom overlay dropdown </Text>
-        <IconedFilter iconType='twitterSVG'>
+        <IconedFilter iconType='icon-Logomark'>
           <CompareCalendarDropDown />
         </IconedFilter>
       </Box>
@@ -236,7 +236,7 @@ export default withInfo({
   }
 
   const story = () => {
-    return ( 
+    return (
       <div>
         <Box my={4}>
           <Text fontSize={3}> Multiple dropdowns </Text>

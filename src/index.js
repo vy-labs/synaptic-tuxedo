@@ -62,7 +62,6 @@ export {
 export {
   default as ContentDropdown
 } from './components/components/content-dropdown';
-export { default as Dot } from './components/components/dot';
 export { default as ErrorMessage } from './components/components/error-message';
 export {
   default as GroupedMultiSelect
@@ -76,7 +75,6 @@ export {
   default as RangeSelector
 } from './components/components/range-selector';
 export { default as Slider } from './components/components/slider';
-export { default as Sorter } from './components/components/sorter';
 export { default as Ticker } from './components/components/ticker';
 export { default as TreeSelect } from './components/components/tree-select';
 export {

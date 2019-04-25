@@ -5,7 +5,6 @@ import { withKnobs } from '@storybook/addon-knobs/react';
 import tabsStories from './tabs/stories';
 import statusStories from './status/stories';
 import ratingStories from './rating/stories';
-import dotStories from './dot/stories';
 import compareCalendarStories from './compare-calendar/stories';
 import iconedFilterStories from './iconed-filter/stories';
 import errorMessageStories from './error-message/stories';
@@ -19,8 +18,7 @@ import contentDDStories from './content-dropdown/stories';
 import groupedMultiSelectStories from './grouped-multi-select/stories';
 import imgStories from './img/stories';
 import closeIconStories from './close-icon/stories';
-import sorterStories from './sorter/stories';
-import appIconStories from './app-icon/stories';
+import chipStories from './chip/stories';
 import nameIconStories from './name-icon/stories';
 import tickerStories from './ticker/stories';
 
@@ -36,10 +34,6 @@ const storiesArr = [
   {
     heading: 'Rating',
     componentStories: ratingStories
-  },
-  {
-    heading: 'Dot',
-    componentStories: dotStories
   },
   {
     heading: 'Compare Calendar',
@@ -70,31 +64,23 @@ const storiesArr = [
     componentStories: treeSelectStory
   },
   {
-    heading: 'Content DD',
+    heading: 'Content Dropdown',
     componentStories: contentDDStories
   },
   {
-    heading: 'Grouped Multi-Select',
+    heading: 'Grouped Multi Select',
     componentStories: groupedMultiSelectStories
   },
   {
-    heading: 'Img',
+    heading: 'Image',
     componentStories: imgStories
   },
   {
-    heading: 'Close Icon',
-    componentStories: closeIconStories
+    heading: 'Chip',
+    componentStories: chipStories
   },
   {
-    heading: 'Sorter',
-    componentStories: sorterStories
-  },
-  {
-    heading: 'AppIcon',
-    componentStories: appIconStories
-  },
-  {
-    heading: 'NameIcon',
+    heading: 'Name Icon',
     componentStories: nameIconStories
   },
   {
