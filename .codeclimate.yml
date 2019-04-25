@@ -1,0 +1,92 @@
+version: '2'
+checks:
+  complex-logic:
+    enabled: false
+  file-lines:
+    enabled: false
+  method-complexity:
+    enabled: false
+  method-lines:
+    enabled: false
+  return-statements:
+    enabled: false
+engines:
+  eslint:
+    enabled: true
+    checks:
+      max-len:
+        enabled: false
+      arrow-body-style:
+        enabled: false
+      import/no-unresolved:
+        enabled: false
+      import/no-extraneous-dependencies:
+        enabled: false
+      import/no-mutable-exports:
+        enabled: false
+      import/no-named-as-default:
+        enabled: false
+      import/no-named-as-default-member:
+        enabled: false
+      import/export:
+        enabled: false
+      import/no-amd:
+        enabled: false
+      import/imports-first:
+        enabled: false
+      import/newline-after-import:
+        enabled: false
+      import/no-duplicates:
+        enabled: false
+      import/prefer-default-export:
+        enabled: false
+      import/extensions:
+        enabled: false
+      arrow-parens:
+        enabled: false
+      react/jsx-filename-extension:
+        enabled: false
+      react/forbid-prop-types:
+        enabled: false
+      react/require-default-props:
+        enabled: false
+      jsx-a11y/no-static-element-interactions:
+        enabled: false
+      jsx-a11y/label-has-for:
+        enabled: false
+      prefer-rest-params:
+        enabled: false
+      react/no-danger:
+        enabled: false
+      no-prototype-builtins:
+        enabled: false
+      no-underscore-dangle:
+        enabled: false
+      jsx-a11y/click-events-have-key-events:
+        enabled: false
+      react/no-did-update-set-state:
+        enabled: false
+  duplication:
+    enabled: false
+    config:
+      languages:
+      - javascript
+    exclude_fingerprints:
+      - 5c988ba7c34ba1102af3af41bf0af5cd
+      - 4dc72605ab07b2621e3bd0f7fdf42c31
+      - 7c816000d19fa4039e3190c4ea6af4c8
+      - d074cf235ec18193d3072a94584199a0
+      - 6990812ac62c301da3abfff7057d5c03
+  fixme:
+    enabled: true
+ratings:
+  paths:
+   - "src/**/*.js"
+   - "src/**/*.jsx"
+
+
+exclude_paths:
+- "dist"
+- "__tests__"
+- "scripts"
+- "tuxedo/**/*stub.js"
