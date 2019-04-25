@@ -89,4 +89,5 @@ exclude_paths:
 - "dist"
 - "__tests__"
 - "scripts"
-- "tuxedo/**/*stub.js"
+- "src/**/*stub.js"
+- "src/assets"

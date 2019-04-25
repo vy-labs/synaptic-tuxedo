@@ -1,7 +1,8 @@
 import moment from 'moment';
 import _ from 'lodash';
+import { DATE_FORMAT } from 'tuxedo/constants';
 
-function getOptions(startDate, endDate, inc, unit, format, pluralForm) {
+function getOptions({ startDate, endDate, inc, unit, format, pluralForm }) {
   let currDate = startDate;
   const options = [];
 
@@ -25,7 +26,7 @@ function getOptions(startDate, endDate, inc, unit, format, pluralForm) {
 }
 
 export function getOptionsPeriodText(firstDate, period) {
-  const momentDate = moment(firstDate, 'YYYY-MM-DD');
+  const momentDate = moment(firstDate, DATE_FORMAT);
   if (!momentDate.isValid()) {
     return null;
   }
@@ -35,16 +36,17 @@ export function getOptionsPeriodText(firstDate, period) {
   } else if (period === 'month') {
     return momentDate.format('YYYY MMM');
   } else if (period === 'week') {
-    return momentDate.format('YYYY-MM-DD');
+    return momentDate.format(DATE_FORMAT);
   } else if (period === 'year') {
     return momentDate.format('YYYY');
   } else if (period === 'day') {
-    return momentDate.format('YYYY-MM-DD');
+    return momentDate.format(DATE_FORMAT);
   }
+  return '';
 }
 
 export function getOptionsPeriodTextFeed(firstDate, period) {
-  const momentDate = moment(firstDate, 'YYYY-MM-DD');
+  const momentDate = moment(firstDate, DATE_FORMAT);
   if (!momentDate.isValid()) {
     return null;
   }
@@ -60,52 +62,88 @@ export function getOptionsPeriodTextFeed(firstDate, period) {
   } else if (period === 'day') {
     return momentDate.format('DD-MM-YYYY');
   }
+  return '';
 }
 
 export function getDayOptions(startDate, endDate, inc) {
-  return getOptions(startDate, endDate, inc, 'day', 'YYYY-MM-DD', 'days');
+  return getOptions({
+    startDate,
+    endDate,
+    inc,
+    unit: 'day',
+    format: DATE_FORMAT,
+    pluralForm: 'days'
+  });
 }
 
 export function getWeekOptions(startDate, endDate, inc) {
-  return getOptions(startDate, endDate, inc, 'week', 'YYYY-MM-DD', 'weeks');
+  return getOptions({
+    startDate,
+    endDate,
+    inc,
+    unit: 'week',
+    format: DATE_FORMAT,
+    pluralForm: 'weeks'
+  });
 }
 
-export function getYearOptions(startDate, endDate, inc) {
-  return getOptions(startDate, endDate, inc, 'year', 'YYYY', 'years');
+export function getMonthOptions(startDate, endDate, inc) {
+  return getOptions({
+    startDate,
+    endDate,
+    inc,
+    unit: 'month',
+    format: 'YYYY MMM',
+    pluralForm: 'months'
+  });
 }
 
 export function getQuarterOptions(startDate, endDate, inc) {
   startDate = +moment(startDate).startOf('quarter');
-  return getOptions(startDate, endDate, inc, 'quarter', 'YYYY [Q]Q', 'Q');
+  return getOptions({
+    startDate,
+    endDate,
+    inc,
+    unit: 'quarter',
+    format: 'YYYY [Q]Q',
+    pluralForm: 'Q'
+  });
 }
 
-export function getMonthOptions(startDate, endDate, inc) {
-  return getOptions(startDate, endDate, inc, 'month', 'YYYY MMM', 'months');
+export function getYearOptions(startDate, endDate, inc) {
+  return getOptions({
+    startDate,
+    endDate,
+    inc,
+    unit: 'year',
+    format: 'YYYY',
+    pluralForm: 'years'
+  });
 }
 
 export function getOptionsByRollup(startDate, endDate, rollup, optionType) {
   if (
     startDate ===
-    moment(startDate, 'YYYY-MM-DD')
+    moment(startDate, DATE_FORMAT)
       .startOf(rollup)
-      .format('YYYY-MM-DD')
+      .format(DATE_FORMAT)
   ) {
-    startDate = +moment(startDate, 'YYYY-MM-DD');
+    startDate = +moment(startDate, DATE_FORMAT);
   } else {
-    startDate = +moment(startDate, 'YYYY-MM-DD')
+    startDate = +moment(startDate, DATE_FORMAT)
       .add(1, rollup)
       .startOf(rollup);
   }
 
   if (
     endDate ===
-    moment(endDate, 'YYYY-MM-DD')
+    moment(endDate, DATE_FORMAT)
       .endOf(rollup)
-      .format('YYYY-MM-DD')
+      .format(DATE_FORMAT)
   ) {
-    endDate = +moment(endDate, 'YYYY-MM-DD');
+    endDate = +moment(endDate, DATE_FORMAT);
   } else {
-    endDate = +moment(endDate, 'YYYY-MM-DD')
+    endDate = +moment(endDate, DATE_FORMAT)
       .subtract(1, rollup)
       .startOf(rollup);
   }
@@ -135,7 +173,7 @@ export function getOptionsByRollup(startDate, endDate, rollup, optionType) {
 
   return _.map(options, opt => ({
     label: opt.value,
-    value: moment(opt.timestamp).format('YYYY-MM-DD')
+    value: moment(opt.timestamp).format(DATE_FORMAT)
   }));
 }
 
@@ -144,7 +182,7 @@ export function getRelativeOptionsByRollup(startDate, endDate, rollup) {
   return _.reduce(
     normalOptions,
     (mem, opt) => {
-      const n = moment(opt.value, 'YYYY-MM-DD').diff(moment(), rollup);
+      const n = moment(opt.value, DATE_FORMAT).diff(moment(), rollup);
       if (n === 0) {
         return mem;
       }
@@ -164,46 +202,46 @@ export function getDateRange(inp, rollup) {
       return [
         moment(inp, 'YYYY')
           .startOf('year')
-          .format('YYYY-MM-DD'),
+          .format(DATE_FORMAT),
         moment(inp, 'YYYY')
           .endOf('year')
-          .format('YYYY-MM-DD')
+          .format(DATE_FORMAT)
       ];
     case 'quarter':
       return [
         moment(inp, 'YYYY [Q]Q')
           .startOf('quarter')
-          .format('YYYY-MM-DD'),
+          .format(DATE_FORMAT),
         moment(inp, 'YYYY [Q]Q')
           .endOf('quarter')
-          .format('YYYY-MM-DD')
+          .format(DATE_FORMAT)
       ];
     case 'week':
       return [
-        moment(inp, 'YYYY-MM-DD')
+        moment(inp, DATE_FORMAT)
           .startOf('week')
-          .format('YYYY-MM-DD'),
-        moment(inp, 'YYYY-MM-DD')
+          .format(DATE_FORMAT),
+        moment(inp, DATE_FORMAT)
           .endOf('week')
-          .format('YYYY-MM-DD')
+          .format(DATE_FORMAT)
       ];
     case 'day':
       return [
-        moment(inp, 'YYYY-MM-DD')
+        moment(inp, DATE_FORMAT)
           .startOf('day')
-          .format('YYYY-MM-DD'),
-        moment(inp, 'YYYY-MM-DD')
+          .format(DATE_FORMAT),
+        moment(inp, DATE_FORMAT)
           .startOf('day')
-          .format('YYYY-MM-DD')
+          .format(DATE_FORMAT)
       ];
     default:
       return [
         moment(inp, 'YYYY MMM')
           .startOf('month')
-          .format('YYYY-MM-DD'),
+          .format(DATE_FORMAT),
         moment(inp, 'YYYY MMM')
           .endOf('month')
-          .format('YYYY-MM-DD')
+          .format(DATE_FORMAT)
       ];
   }
 }
@@ -238,7 +276,7 @@ export function getDateArray(start, end) {
   while (curDate) {
     curDate = moment(curDate)
       .add(1, 'day')
-      .format('YYYY-MM-DD');
+      .format(DATE_FORMAT);
     if (curDate && moment(curDate) <= moment(end)) {
       dates.push({
         date: curDate,
@@ -261,13 +299,13 @@ export function getDateArray(start, end) {
 export function getMonthDates(start) {
   const monthStartWeekStart = moment(start)
     .startOf('week')
-    .format('YYYY-MM-DD');
+    .format(DATE_FORMAT);
   const end = moment(start)
     .endOf('month')
-    .format('YYYY-MM-DD');
+    .format(DATE_FORMAT);
   const monthEndWeekEnd = moment(end)
     .endOf('week')
-    .format('YYYY-MM-DD');
+    .format(DATE_FORMAT);
 
   return getDateArray(monthStartWeekStart, monthEndWeekEnd);
 }
@@ -279,9 +317,9 @@ export function getStartMomentObject(inp, rollup) {
     case 'quarter':
       return moment(inp, 'YYYY [Q]Q').startOf('quarter');
     case 'week':
-      return moment(inp, 'YYYY-MM-DD').startOf('week');
+      return moment(inp, DATE_FORMAT).startOf('week');
     case 'day':
-      return moment(inp, 'YYYY-MM-DD').startOf('day');
+      return moment(inp, DATE_FORMAT).startOf('day');
     default:
       return moment(inp, 'YYYY MMM').startOf('month');
   }
@@ -298,7 +336,7 @@ export function getNOptions(orderBy, rollup, analysisPeriod) {
 }
 
 export function getNOptionsNew(rollup, analysisPeriod, endDate) {
-  const today = moment(endDate, 'YYYY-MM-DD')
+  const today = moment(endDate, DATE_FORMAT)
     .add(1, 'day')
     .startOf(rollup);
   const analysisPeriodM = moment(analysisPeriod).startOf(rollup);
@@ -310,24 +348,24 @@ export function getNOptionsNew(rollup, analysisPeriod, endDate) {
 }
 
 export function getLastBasePeriodDate(analysisPeriod, rollup) {
-  return moment(analysisPeriod, 'YYYY-MM-DD')
+  return moment(analysisPeriod, DATE_FORMAT)
     .subtract(1, rollup)
     .endOf(rollup)
-    .format('YYYY-MM-DD');
+    .format(DATE_FORMAT);
 }
 
 export function getLastBasePeriodRelativeDate(analysisRelativeDate, rollup) {
   return moment()
     .subtract(-analysisRelativeDate + 1, rollup)
     .endOf(rollup)
-    .format('YYYY-MM-DD');
+    .format(DATE_FORMAT);
 }
 
 export function getFirstAnalysisPeriodDate(analysisPeriod, rollup) {
-  return moment(analysisPeriod, 'YYYY-MM-DD')
+  return moment(analysisPeriod, DATE_FORMAT)
     .add(1, rollup)
     .startOf(rollup)
-    .format('YYYY-MM-DD');
+    .format(DATE_FORMAT);
 }
 
 export function getDateDifferenceByRollup(analysisDate, baseDate, rollup) {
