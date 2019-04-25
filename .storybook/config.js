@@ -24,9 +24,9 @@ setDefaults({
 
 addParameters({
   options: {
-    // showPanel: false,
-    panelPosition: 'right',
-    sortStoriesByKind: true
+    name: 'Tuxedo',
+    showPanel: false,
+    sortStoriesByKind: false
   }
 });
 

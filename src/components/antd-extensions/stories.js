@@ -37,7 +37,7 @@ import antdIconStories from './antd-icon/stories';
 
 const storiesArr = [
   {
-    heading: 'AutoComplete',
+    heading: 'Auto Complete',
     componentStories: autoCompleteStories
   },
   {
