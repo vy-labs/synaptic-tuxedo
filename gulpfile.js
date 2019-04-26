@@ -4,7 +4,7 @@ var merge = require('merge-stream');
 var rename = require('gulp-rename');
 var argv = require('yargs').argv;
 
-gulp.task('publish', function() {
+gulp.task('publish:storybook', function() {
   if (!argv.bucket) {
     throw Error('Please pass a --bucket arugment of the target S3 Bucket');
   }
@@ -21,18 +21,18 @@ gulp.task('publish', function() {
   };
 
   var gzipFilter = [
-    'build/**/*.js',
-    'build/**/*.html',
-    'build/**/*.css',
-    'build/**/*.ico',
-    'build/**/*.json'
+    '.out/**/*.js',
+    '.out/**/*.html',
+    '.out/**/*.css',
+    '.out/**/*.ico',
+    '.out/**/*.json'
   ];
   var negativeFilter = gzipFilter.map(function(x) {
     return '!' + x;
   });
 
   var plain = gulp
-    .src(['build/**/*'].concat(negativeFilter))
+    .src(['.out/**/*'].concat(negativeFilter))
     .pipe(rename(prefixDir));
   var gzip = gulp
     .src(gzipFilter)
