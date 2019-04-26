@@ -71,7 +71,7 @@ jobs:
         command: echo 'export STATIC_PATH="${STAGING_STATIC_PATH}"' >> $BASH_ENV
     - run:
         name: Build storybook
-        command: source $BASH_ENV && yarn run build
+        command: source $BASH_ENV && yarn run storybook:build
         no_output_timeout: 20m
     - run: *configure-node-modules-path
     - run:
