@@ -1,17 +1,17 @@
 export function getWithInfoStyles() {
-  return (stylesheet) => ({
+  return stylesheet => ({
     ...stylesheet,
     header: {
       ...stylesheet.header,
       h1: {
         ...stylesheet.header.h1,
-        fontSize: '15px',
-        color: '#858E9D',
-        fontWeight: '500'
+        fontSize: '15px',
+        color: '#858E9D',
+        fontWeight: '500'
       },
       h2: {
         ...stylesheet.header.h2,
-        fontWeight : 700,
+        fontWeight: 700,
         FontSize: '24px'
       }
     },
@@ -28,5 +28,5 @@ export function getWithInfoStyles() {
         margin: 0
       }
     }
-  })
+  });
 }
