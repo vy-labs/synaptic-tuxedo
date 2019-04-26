@@ -1,8 +1,6 @@
 import system from 'system-components';
 import { themeGet } from 'styled-system';
-
-// Tuxedo imports
-import Box from '../box';
+import Box from 'tuxedo/components/atoms/box';
 
 const ViewHeader = system(
   {

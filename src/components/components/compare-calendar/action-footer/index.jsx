@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-
-import FlexBox from '../../../atoms/flexbox';
-import Box from '../../../atoms/box';
-import Text from '../../../atoms/text';
-import Button from '../../../antd-extensions/button';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Box from 'tuxedo/components/atoms/box';
+import Text from 'tuxedo/components/atoms/text';
+import Button from 'tuxedo/components/antd-extensions/button';
 
 const StyledFooterContainer = styled(FlexBox)`
   border-top: 1px solid ${themeGet('colors.border.default')};

@@ -1,8 +1,6 @@
 import system from 'system-components';
 import { themeGet } from 'styled-system';
-
-// Tuxedo imports
-import FlexBox from '../flexbox';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 
 const View = system(
   {
@@ -15,7 +13,10 @@ const View = system(
     height: '100%'
   },
   props => ({
-    background: (props.variant === 'dark') ? themeGet('colors.grey.1')(props) : 'transparent',
+    background:
+      props.variant === 'dark'
+        ? themeGet('colors.grey.1')(props)
+        : 'transparent',
     fontFamily: themeGet('fonts.0')(props),
     color: props.color || themeGet('colors.text.dark')(props)
   })

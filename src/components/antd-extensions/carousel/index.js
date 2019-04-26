@@ -4,8 +4,8 @@ import { themeGet } from 'styled-system';
 import styled from 'styled-components';
 import { Carousel } from 'antd';
 import hoistNonReactStatics from 'hoist-non-react-statics';
-import FlexBox from '../../atoms/flexbox';
-import FontIcon from '../../atoms/font-icon';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const StyledCarousel = styled(Carousel)`
   .slick-track {

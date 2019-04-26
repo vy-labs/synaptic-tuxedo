@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlexBox from '../../atoms/flexbox';
-// import SvgIcon from '../../components/svg-icon';
-import FontIcon from '../../atoms/font-icon';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const VARIANTS = {
   default: {

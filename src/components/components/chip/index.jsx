@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
 import cleanComponentProps from 'tuxedo/utils/cleanComponentProps';
-
-import FlexBox from '../../atoms/flexbox';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 
 const colorTypeMap = {
   primary: {

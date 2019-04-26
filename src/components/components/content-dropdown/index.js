@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { Dropdown, FlexBox, SvgIcon } from 'tuxedo';
 import styled from 'styled-components';
 import hoistNonReactStatics from 'hoist-non-react-statics';
-
-import FlexBox from '../../atoms/flexbox';
-import Dropdown from '../../antd-extensions/dropdown';
-// import SvgIcon from '../../components/svg-icon';
-import FontIcon from '../../atoms/font-icon';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Dropdown from 'tuxedo/components/antd-extensions/dropdown';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const StyledDDContent = styled(FlexBox)`
   cursor: pointer;
@@ -19,7 +16,8 @@ const DDSvgIcon = styled(FontIcon)`
   }
 `;
 
-/** Extension of antd dropDown supports all the props of antd
+/**
+ * Extension of antd dropDown supports all the props of antd
  */
 class ContentDropdown extends Component {
   constructor(props) {

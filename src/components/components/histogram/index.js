@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Tooltip from '../../antd-extensions/tooltip';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Tooltip from 'tuxedo/components/antd-extensions/tooltip';
 
 const StyledHistogramColumn = styled(FlexBox)`
   height: 100%;

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { themeGet } from 'styled-system';
-
-import Box from '../../atoms/box';
-import Histogram from '../../components/histogram';
-import Slider from '../../components/slider';
+import Box from 'tuxedo/components/atoms/box';
+import Histogram from 'tuxedo/components/components/histogram';
+import Slider from 'tuxedo/components/components/slider';
 
 /**
  * Range selector component.

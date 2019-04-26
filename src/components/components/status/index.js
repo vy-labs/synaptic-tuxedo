@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { themeGet } from 'styled-system';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Tooltip from 'tuxedo/components/antd-extensions/tooltip';
 import cleanComponentProps from 'tuxedo/utils/cleanComponentProps';
-
-import FlexBox from '../../atoms/flexbox';
-import Tooltip from '../../antd-extensions/tooltip';
 
 const COLOR_SHADE = 6;
 const BACKGROUND_COLOR = 'grey';

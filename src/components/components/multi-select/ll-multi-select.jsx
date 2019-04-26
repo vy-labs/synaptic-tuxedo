@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { themeGet } from 'styled-system';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 import Toolbar from './toolbar';
 import OptionsColumn from './options';
 import ActionBar from './action-bar';
 import SelectionDisplayList from './selection-display-list';
-import FlexBox from '../../atoms/flexbox';
 
 const StyledMultiSelectContainer = styled(FlexBox)`
   overflow: hidden;

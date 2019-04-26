@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TreeComponent from './tree-component';
-import MultiSelect from '../multi-select/ll-multi-select';
-import { AVAILABLE_SIZES } from './constants';
+import MultiSelect from 'tuxedo/components/components/multi-select/ll-multi-select';
 import isEqualProps from 'tuxedo/utils/isEqualProps';
+import TreeComponent from './tree-component';
+import { AVAILABLE_SIZES } from './constants';
 
 export default class TreeSelect extends React.Component {
   constructor(props) {

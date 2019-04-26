@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Box from 'tuxedo/components/atoms/box';
 import { SingleEntity, RollupHeader, getRows } from '../shared';
-import FlexBox from '../../../atoms/flexbox';
-import Box from '../../../atoms/box';
 
 const monthNames = [
   'Jan',

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 import Tab from './tab';
-import FlexBox from '../../atoms/flexbox';
 
 /**
  *  Create a tabs section

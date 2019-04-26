@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import Checkbox from 'tuxedo/components/antd-extensions/checkbox';
 import ColumnHeader from './column-header';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import Checkbox from '../../antd-extensions/checkbox';
 
 function getIsHeaderSelected({ options, valueSet, valueKey }) {
   return options.every(option => valueSet.has(option[valueKey]));
@@ -19,20 +18,20 @@ function getIsHeaderInderminate({ options, valueSet, valueKey }) {
 export default class SingleGroupedOption extends React.Component {
   constructor(props) {
     super(props);
-    this.onChange = this.onChange.bind(this);
-    this.onHeaderClick = this.onHeaderClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
-  onChange(option) {
+  handleChange(option) {
     return e => {
-      const { header } = this.props;
-      this.props.onChange(option, header, e.target.checked);
+      const { header, onChange } = this.props;
+      onChange && onChange(option, header, e.target.checked);
     };
   }
 
-  onHeaderClick(header, checked) {
-    const { options } = this.props;
-    this.props.onHeaderClick(options, header, checked);
+  handleHeaderClick(header, checked) {
+    const { options, onHeaderClick } = this.props;
+    onHeaderClick && onHeaderClick(options, header, checked);
   }
 
   render() {
@@ -61,7 +60,7 @@ export default class SingleGroupedOption extends React.Component {
           <ColumnHeader
             header={header}
             isHeaderInderminate={isHeaderInderminate}
-            onHeaderClick={this.onHeaderClick}
+            onHeaderClick={this.handleHeaderClick}
             isHeaderSelected={isHeaderSelected}
             headerLabelKey={headerLabelKey}
           />
@@ -75,7 +74,7 @@ export default class SingleGroupedOption extends React.Component {
               >
                 <Checkbox
                   checked={valueSet.has(column[valueKey])}
-                  onChange={this.onChange(column)}
+                  onChange={this.handleChange(column)}
                 >
                   <Text fontWeight='semibold'>{column[labelKey]}</Text>
                 </Checkbox>

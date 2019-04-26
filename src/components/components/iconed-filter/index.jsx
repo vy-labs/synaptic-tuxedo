@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
 import PropTypes from 'prop-types';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 import IconContainer from './icon-container';
 import Content from './filter-content';
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
 
 const StyledIconedFilterContainer = styled(FlexBox)`
   box-shadow: ${themeGet('shadows.1')};
@@ -43,9 +43,13 @@ function IconedFilter({ children, iconType, noInline = false }) {
 }
 
 IconedFilter.propTypes = {
-  /** multiple dropdowns can be rendered which are supposed to be passed as the children */
+  /**
+   * multiple dropdowns can be rendered which are supposed to be passed as the children
+   */
   children: PropTypes.node,
-  /** icontype takes string pointing to our local icon names, or pass a react node */
+  /**
+   * icontype takes string pointing to our local icon names, or pass a react node
+   */
   iconType: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   noInline: PropTypes.bool

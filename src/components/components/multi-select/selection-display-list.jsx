@@ -1,12 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import FontIcon from '../../atoms/font-icon';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const StyledListContainer = styled(FlexBox)`
   background-color: ${themeGet('colors.grey.1')};

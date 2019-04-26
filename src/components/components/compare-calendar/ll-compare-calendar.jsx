@@ -1,16 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import moment from 'moment';
 import { themeGet } from 'styled-system';
+import moment from 'moment';
 import isEqualProps from 'tuxedo/utils/isEqualProps';
 import cleanComponentProps from 'tuxedo/utils/cleanComponentProps';
 import shouldComponentUpdateLodash from 'tuxedo/utils/shouldComponentUpdateLodash';
-import PropTypes from 'prop-types';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 import Rollup from './rollup';
 import QuickLinks from './quick-links';
 import ActionFooter from './action-footer';
 import { rollupComponentMap } from './shared/constants';
-import FlexBox from '../../atoms/flexbox';
 
 const DEFAULT_SELECTED_ROLLUP = 'month';
 

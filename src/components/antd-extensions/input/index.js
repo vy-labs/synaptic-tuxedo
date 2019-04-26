@@ -3,13 +3,12 @@ import { Input } from 'antd';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-import renderers from 'tuxedo/renderers';
-import shouldComponentUpdateLodash from 'tuxedo/utils/shouldComponentUpdateLodash';
 import hoistNonReactStatics from 'hoist-non-react-statics';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
+import renderers from 'tuxedo/renderers';
 import hasValue from 'tuxedo/utils/hasValue';
-
+import shouldComponentUpdateLodash from 'tuxedo/utils/shouldComponentUpdateLodash';
 import { safeGet } from 'tuxedo/utils/stringUtils';
-import FontIcon from '../../atoms/font-icon';
 
 const StyledInput = styled(Input)`
   /** Most styled can be changed through input.antd.js, anything else can be placed here */
@@ -98,10 +97,11 @@ class TuxedoInput extends React.Component {
   }
 
   handleChange(e) {
+    const { onChange } = this.props;
     if (!('value' in this.props)) {
       this.setState({ value: safeGet(e, ['target', 'value']) });
     }
-    this.props.onChange && this.props.onChange(e);
+    onChange && onChange(e);
   }
 
   handleClearInput(e) {

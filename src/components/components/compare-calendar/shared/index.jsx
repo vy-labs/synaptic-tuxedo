@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import cleanComponentProps from 'tuxedo/utils/cleanComponentProps';
 import PropTypes from 'prop-types';
 import { themeGet } from 'styled-system';
-
-import FlexBox from '../../../atoms/flexbox';
-import Text from '../../../atoms/text';
-// import SvgIcon from '../../../components/svg-icon';
-import FontIcon from '../../../atoms/font-icon';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 function getEntityTextColor(props) {
   if (props.active) {

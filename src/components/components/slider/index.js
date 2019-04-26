@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AntdSlider from '../../antd-extensions/slider';
+import AntdSlider from 'tuxedo/components/antd-extensions/slider';
 
 /**
  * Wrapper over ANT-D slider

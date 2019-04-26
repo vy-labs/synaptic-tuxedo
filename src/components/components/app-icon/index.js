@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
 import cleanComponentProps from 'tuxedo/utils/cleanComponentProps';
-import Img from '../../components/img';
-import Box from '../../atoms/box';
+import Img from 'tuxedo/components/components/img';
+import Box from 'tuxedo/components/atoms/box';
 
 const VARIANTS = {
   default: {
@@ -17,7 +17,6 @@ const StyledAppIcon = cleanComponentProps(Box, ['variant', 'clickable'])`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: ${themeGet('shadows.1')}; */
   ${props => {
     const variantProps = VARIANTS[props.variant] || VARIANTS.default;
     return `

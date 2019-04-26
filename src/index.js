@@ -55,7 +55,6 @@ export { default as AppIcon } from './components/components/app-icon';
 export { default as Chip } from './components/components/chip';
 export { default as Filter } from './components/components/filter';
 export { default as Tabs } from './components/components/tabs';
-export { default as NavHeader } from './components/components/nav-header';
 export { default as Status } from './components/components/status';
 export { default as Rating } from './components/components/rating';
 export { default as CloseIcon } from './components/components/close-icon';
@@ -79,6 +78,3 @@ export {
 } from './components/components/range-selector';
 export { default as Slider } from './components/components/slider';
 export { default as TreeSelect } from './components/components/tree-select';
-export {
-  default as EntityLockedPanel
-} from './components/components/entity-locked-panel';

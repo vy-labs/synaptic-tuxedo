@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { DATE_FORMAT } from 'tuxedo/constants';
-import { getMonthDates } from 'tuxedo/utils/dateHelpers';
 import { themeGet } from 'styled-system';
+import styled from 'styled-components';
+import { getMonthDates } from 'tuxedo/utils/dateHelpers';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import { DATE_FORMAT } from 'tuxedo/constants';
 import { SingleEntity, RollupHeader, getRows } from '../shared';
-import FlexBox from '../../../atoms/flexbox';
 
 const StyledRowContainer = styled(FlexBox)`
   ${props =>

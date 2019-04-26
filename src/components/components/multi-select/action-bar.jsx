@@ -1,12 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-import PropTypes from 'prop-types';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import Button from '../../antd-extensions/button';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import Button from 'tuxedo/components/antd-extensions/button';
 
 const StyledActionBarContainer = styled(FlexBox)`
   border-top: 1px solid ${themeGet('colors.border.default')};

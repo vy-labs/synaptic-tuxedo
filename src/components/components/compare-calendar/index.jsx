@@ -79,7 +79,7 @@ CompareCalendarWrapper.config = CompareCalendar.config;
 CompareCalendarWrapper.propTypes = {
   /** array of moment object for selected date for adjacent calendars */
   selected: PropTypes.array,
-  /** moment object for minumum selectable date */
+  /** moment object for minimum selectable date */
   min: PropTypes.object,
   /** moment object for maximum selectable date */
   max: PropTypes.object,

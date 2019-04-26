@@ -1,11 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-import PropTypes from 'prop-types';
-
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import Checkbox from '../../antd-extensions/checkbox';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import Checkbox from 'tuxedo/components/antd-extensions/checkbox';
 
 const StyledCheckbox = styled(Checkbox)`
   &.ant-checkbox-wrapper {
@@ -59,6 +58,14 @@ class SingleOption extends React.Component {
   }
 }
 
+SingleOption.propTypes = {
+  onChange: PropTypes.func,
+  labelKey: PropTypes.string,
+  valueKey: PropTypes.string,
+  optionLabelRenderer: PropTypes.func,
+  option: PropTypes.object
+};
+
 export default function OptionsColumn({
   width,
   options,
@@ -87,9 +94,6 @@ OptionsColumn.propTypes = {
   /** width  */
   width: PropTypes.string,
   /** other than key all the other object attributes map to antd checkbox */
-  // options: PropTypes.shape({
-  //   key: PropTypes.string
-  // }),
   options: PropTypes.array,
   labelKey: PropTypes.string,
   /** callback called with the option object on checkbox state change */

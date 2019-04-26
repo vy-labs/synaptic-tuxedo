@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 import { SingleEntity, RollupHeader, getRows } from '../shared';
-import FlexBox from '../../../atoms/flexbox';
 
 const quarterNames = ['Q1', 'Q2', 'Q3', 'Q4'];
 

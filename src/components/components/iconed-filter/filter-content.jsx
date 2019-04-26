@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import Ellipsis from '../../atoms/ellipsis';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import Ellipsis from 'tuxedo/components/atoms/ellipsis';
 
 export default function Content(props) {
   const { label, body, maxWidth } = props;

@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { TreeSelect } from 'antd';
-import MultiSelect from '../multi-select/ll-multi-select';
 import * as JsSearch from 'js-search';
-import isEqualProps from 'tuxedo/utils/isEqualProps';
 import { themeGet } from 'styled-system';
 import styled from 'styled-components';
 import getRandomId from 'tuxedo/utils/getRandomId';
+import isEqualProps from 'tuxedo/utils/isEqualProps';
 import shouldComponentUpdateLodash from 'tuxedo/utils/shouldComponentUpdateLodash';
 import { highlightKeyword } from 'tuxedo/utils/stringUtils';
-import FlexBox from '../../atoms/flexbox';
-import Checkbox from '../../antd-extensions/checkbox';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Checkbox from 'tuxedo/components/antd-extensions/checkbox';
+import MultiSelect from 'tuxedo/components/components/multi-select/ll-multi-select';
 import { AVAILABLE_SIZES, AVAILABLE_CHECK_STRATEGIES } from './constants';
 
 const StyledTreeContainer = styled(FlexBox)`
@@ -222,7 +222,7 @@ class TreeComponent extends React.Component {
       showCheckedStrategy:
         AVAILABLE_CHECK_STRATEGIES[showCheckedStrategy] ||
         AVAILABLE_CHECK_STRATEGIES.show_parent,
-      treeDefaultExpandAll: treeDefaultExpandAll,
+      treeDefaultExpandAll,
       searchPlaceholder: 'Please select',
       prefixAria: 'ant-select',
       prefixCls: 'ant-select',
@@ -246,6 +246,70 @@ class TreeComponent extends React.Component {
       treeData,
       value
     };
+  }
+
+  setRealSearchTerm = _.debounce(value => {
+    const { value: treeValue } = this.props;
+    this.setState({
+      searchInputValue: value,
+      searchChecked: value ? treeValue.slice() : []
+    });
+
+    return null;
+  }, 300);
+
+  handleSearchTreeChange = (value, labelArr, restObj) => {
+    const { valueToTreeDataDict } = this.state;
+    const { value: treeValue } = this.props;
+    let treeValCopy = treeValue.slice();
+    const valTriggered = restObj.triggerValue;
+    const valTriggeredObj = valueToTreeDataDict[valTriggered];
+    const adjustedVal = this.adjustSearchNodeChangeValue(valTriggeredObj);
+
+    // Determining push/ pop state from initial triggeredVal and value received from treeSelect
+    if (value.indexOf(valTriggered) !== -1) {
+      treeValCopy.push(adjustedVal);
+    } else {
+      treeValCopy = treeValCopy.filter(elem => elem !== adjustedVal);
+    }
+
+    this.handleTreeChange(treeValCopy);
+  };
+
+  handleTreeChange = value => {
+    const { valueToTreeDataDict } = this.state;
+    const { onChange } = this.props;
+    const retValArr = value.map(val => valueToTreeDataDict[val]);
+
+    onChange &&
+      onChange({
+        dataPart: retValArr,
+        value
+      });
+  };
+
+  handleSelectAllClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const { treeData } = this.state;
+    const selValues = treeData.map(brach => brach.value);
+    this.handleTreeChange(selValues);
+  }
+
+  handleClearClick() {
+    const { onChange } = this.props;
+    onChange &&
+      onChange({
+        value: [],
+        dataPart: []
+      });
+  }
+
+  handleSearchInputChange(value) {
+    this.setState({ searchValueToShow: value }, () =>
+      this.setRealSearchTerm(value)
+    );
   }
 
   checkIfAllChildrenChecked(children, treeValues) {
@@ -305,49 +369,6 @@ class TreeComponent extends React.Component {
     this.jsSearchInstance.addIndex('value');
   }
 
-  handleSearchTreeChange = (value, labelArr, restObj) => {
-    const { valueToTreeDataDict } = this.state;
-    const { value: treeValue } = this.props;
-    let treeValCopy = treeValue.slice();
-    const valTriggered = restObj.triggerValue;
-    const valTriggeredObj = valueToTreeDataDict[valTriggered];
-    const adjustedVal = this.adjustSearchNodeChangeValue(valTriggeredObj);
-
-    // Determining push/ pop state from initial triggeredVal and value received from treeSelect
-    if (value.indexOf(valTriggered) !== -1) {
-      treeValCopy.push(adjustedVal);
-    } else {
-      treeValCopy = treeValCopy.filter(elem => elem !== adjustedVal);
-    }
-
-    this.handleTreeChange(treeValCopy);
-  };
-
-  handleTreeChange = value => {
-    const { valueToTreeDataDict } = this.state;
-    const retValArr = value.map(val => valueToTreeDataDict[val]);
-    this.props.onChange({
-      dataPart: retValArr,
-      value
-    });
-  };
-
-  handleSelectAllClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const { treeData } = this.state;
-    const selValues = treeData.map(brach => brach.value);
-    this.handleTreeChange(selValues);
-  }
-
-  handleClearClick() {
-    this.props.onChange({
-      value: [],
-      dataPart: []
-    });
-  }
-
   processAndFlatten(
     data,
     flatMap,
@@ -363,13 +384,13 @@ class TreeComponent extends React.Component {
     const { labelKey, valueKey } = this.props;
     return data.map((elem, index) => {
       const elemCopy = Object.assign({}, elem);
-      const uniqueId = `${prevIndex ? prevIndex + '-' : ''}${index}`;
+      const uniqueId = `${prevIndex ? `${prevIndex}-` : ''}${index}`;
       const nextLevel = level + 1;
       elemCopy.uniqueId = elemCopy.uniqueId ? elemCopy.uniqueId : uniqueId;
       elemCopy.label = elemCopy[labelKey];
       elemCopy.value = String(elemCopy[valueKey]);
       elemCopy.level = nextLevel;
-      elemCopy.labelWithpath = `${prevPath ? prevPath + ' > ' : ''}${
+      elemCopy.labelWithpath = `${prevPath ? `${prevPath} > ` : ''}${
         elemCopy.label
       }`;
       elemCopy.parentValues = parentValues;
@@ -416,22 +437,6 @@ class TreeComponent extends React.Component {
       treeData,
       valueToTreeDataDict
     });
-  }
-
-  setRealSearchTerm = _.debounce(value => {
-    const { value: treeValue } = this.props;
-    this.setState({
-      searchInputValue: value,
-      searchChecked: value ? treeValue.slice() : []
-    });
-
-    return null;
-  }, 300);
-
-  handleSearchInputChange(value) {
-    this.setState({ searchValueToShow: value }, () =>
-      this.setRealSearchTerm(value)
-    );
   }
 
   renderSearchTree() {
@@ -498,6 +503,7 @@ class TreeComponent extends React.Component {
 }
 
 TreeComponent.propTypes = {
+  componentID: PropTypes.any,
   searchWidth: PropTypes.string,
   syncValueToTreeDataDictWithParent: PropTypes.func,
   className: PropTypes.string,

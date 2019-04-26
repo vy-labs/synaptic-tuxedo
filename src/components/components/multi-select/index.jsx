@@ -1,7 +1,7 @@
 import React from 'react';
-import isEqualProps from 'tuxedo/utils/isEqualProps';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+import isEqualProps from 'tuxedo/utils/isEqualProps';
 import LLMultiSelect from './ll-multi-select';
 
 function getProcessedOptions(options, value, valueKey) {
@@ -28,8 +28,8 @@ export default class MultiSelect extends React.Component {
     this.markAll = this.markAll.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.initializeState = this.initializeState.bind(this);
-    this.onApply = this.onApply.bind(this);
-    this.onCancel = this.onCancel.bind(this);
+    this.handleApply = this.handleApply.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -74,15 +74,6 @@ export default class MultiSelect extends React.Component {
     this.setState({ searchTerm });
   }
 
-  onApply() {
-    this.props.onApply(this.getValueObject());
-  }
-
-  onCancel() {
-    this.props.onCancel();
-    this.initializeState();
-  }
-
   getSelectionDisplayList() {
     const { options } = this.state;
     const { labelKey } = this.props;
@@ -106,6 +97,17 @@ export default class MultiSelect extends React.Component {
     );
     const value = valueOptions.map(option => option[valueKey]);
     return { value, options: valueOptions };
+  }
+
+  handleApply() {
+    const { onApply } = this.props;
+    onApply && onApply(this.getValueObject());
+  }
+
+  handleCancel() {
+    const { onCancel } = this.props;
+    onCancel && onCancel();
+    this.initializeState();
   }
 
   notifyParentOfChange() {
@@ -178,8 +180,8 @@ export default class MultiSelect extends React.Component {
 
     const actionBar = !hideActionBar && (
       <LLMultiSelect.ActionBar
-        onApply={this.onApply}
-        onCancel={this.onCancel}
+        onApply={this.handleApply}
+        onCancel={this.handleCancel}
       />
     );
 

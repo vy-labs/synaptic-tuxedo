@@ -1,13 +1,12 @@
 import React from 'react';
+import ProptTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-import ProptTypes from 'prop-types';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import LinkText from '../../atoms/link-text';
-import AntdIcon from '../../antd-extensions/antd-icon';
-import Input from '../../antd-extensions/input';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import LinkText from 'tuxedo/components/atoms/link-text';
+import AntdIcon from 'tuxedo/components/antd-extensions/antd-icon';
+import Input from 'tuxedo/components/antd-extensions/input';
 
 const StyledInputBox = styled(Input)`
   .ant-input {
@@ -74,7 +73,8 @@ Toolbar.propTypes = {
   onClearClick: ProptTypes.func,
   onSearchChange: ProptTypes.func,
   searchTerm: ProptTypes.string,
-  hideSelectAll: ProptTypes.bool
+  hideSelectAll: ProptTypes.bool,
+  width: ProptTypes.any
 };
 
 Toolbar.displayName = 'MultiSelect.Toolbar';

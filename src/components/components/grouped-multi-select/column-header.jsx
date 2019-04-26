@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { themeGet } from 'styled-system';
 import styled from 'styled-components';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import Checkbox from '../../antd-extensions/checkbox';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import Checkbox from 'tuxedo/components/antd-extensions/checkbox';
 
 const StyledColumnHeader = styled(FlexBox)`
   background-color: ${themeGet('colors.grey.1')};
@@ -18,12 +17,12 @@ const StyledColumnHeader = styled(FlexBox)`
 export default class ColumnHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.onHeaderClick = this.onHeaderClick.bind(this);
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
-  onHeaderClick(e) {
-    const { header } = this.props;
-    this.props.onHeaderClick(header, e.target.checked);
+  handleHeaderClick(e) {
+    const { header, onHeaderClick } = this.props;
+    onHeaderClick(header, e.target.checked);
   }
 
   render() {
@@ -39,7 +38,7 @@ export default class ColumnHeader extends React.Component {
           <Checkbox
             checked={isHeaderSelected}
             indeterminate={isHeaderInderminate}
-            onChange={this.onHeaderClick}
+            onChange={this.handleHeaderClick}
           >
             <Text
               fontSize={1}

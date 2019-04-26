@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import { themeGet } from 'styled-system';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
 
 /** STYLED COMPONENTS START */
-/**
-  border-bottom: ${themeGet('borders.1')}px solid;
-  border-color: ${themeGet('colors.border.default')};
- */
 const SPACING = 2;
 const StyledFilterContainer = styled.div`
   display: flex;
@@ -35,6 +30,7 @@ const StyledFilterBody = styled(Box)`
 
 class Filter extends Component {
   static Header = StyledFilterHeader;
+
   static Body = StyledFilterBody;
 
   constructor(props) {
@@ -42,7 +38,8 @@ class Filter extends Component {
   }
 
   render() {
-    return <StyledFilterContainer>{this.props.children}</StyledFilterContainer>;
+    const { children } = this.props;
+    return <StyledFilterContainer>{children}</StyledFilterContainer>;
   }
 }
 

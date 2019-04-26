@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { themeGet } from 'styled-system';
-
-import FlexBox from '../../atoms/flexbox';
-// import SvgIcon from '../../components/svg-icon';
-import FontIcon from '../../atoms/font-icon';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const StyledIconContainer = styled(FlexBox)`
   width: ${themeGet('heights.3')}px;
@@ -15,7 +13,9 @@ const StyledIconContainer = styled(FlexBox)`
   background-color: ${themeGet('colors.blue.1')};
 `;
 
-/** create left side part of the filter drop-down  */
+/**
+ * Create left side part of the filter drop-down
+ */
 function IconContainer({ type }) {
   return (
     <StyledIconContainer>

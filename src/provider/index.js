@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import theme from 'theme';
-import Globals from '../globals';
+import Globals from 'tuxedo/globals';
 
 const Provider = ({ children }) => {
   // Injecting globals here.

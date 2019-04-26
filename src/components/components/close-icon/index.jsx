@@ -1,11 +1,8 @@
 import React from 'react';
-import { themeGet } from 'styled-system';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-// Tuxedo imports
-// import SvgIcon from '../../components/svg-icon';
-import FontIcon from '../../atoms/font-icon';
+import styled from 'styled-components';
+import { themeGet } from 'styled-system';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const StyledCloseIcon = styled.div`
   display: inline-flex;

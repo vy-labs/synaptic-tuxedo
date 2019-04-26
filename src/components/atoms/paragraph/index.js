@@ -1,6 +1,5 @@
 import system from 'system-components';
-// Tuxedo imports
-import Text from '../text';
+import Text from 'tuxedo/components/atoms/text';
 
 const SIZE_TO_LINE_HEIGHT = {
   0: '16px',

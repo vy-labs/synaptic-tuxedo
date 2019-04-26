@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import FlexBox from '../../../atoms/flexbox';
-import Box from '../../../atoms/box';
-import Text from '../../../atoms/text';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Box from 'tuxedo/components/atoms/box';
+import Text from 'tuxedo/components/atoms/text';
 
 const StyledQuickLink = styled(Text)`
   ${({ disabled }) =>

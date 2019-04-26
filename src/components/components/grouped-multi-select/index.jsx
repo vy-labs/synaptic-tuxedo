@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MultiSelect from '../multi-select/ll-multi-select';
-import GroupedOptions from './grouped-options';
 import shouldComponentUpdateLodash from 'tuxedo/utils/shouldComponentUpdateLodash';
 import isEqualProps from 'tuxedo/utils/isEqualProps';
+import MultiSelect from 'tuxedo/components/components/multi-select/ll-multi-select';
+import GroupedOptions from './grouped-options';
 
 function getNewValueState(value) {
   return {
@@ -73,8 +73,9 @@ export default class GroupedMultiSelect extends React.Component {
 
     const valueState = getNewValueState(newValue);
     this.setState(valueState, () => {
+      const { onChange } = this.props;
       const valueObject = this.getObjectsFromValue();
-      this.props.onChange && this.props.onChange(newValue, valueObject);
+      onChange && onChange(newValue, valueObject);
     });
   }
 
@@ -254,7 +255,7 @@ GroupedMultiSelect.propTypes = {
   value: PropTypes.array,
   /* called with the value array as first param, and values object array as second */
   onApply: PropTypes.func.isRequired,
-  /* called with emppty params */
+  /* called with empty params */
   onCancel: PropTypes.func,
   /* called with the value array as first param, and values object array as second */
   onChange: PropTypes.func,

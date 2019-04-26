@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import { themeGet } from 'styled-system';
-
-// import SvgIcon from '../../components/svg-icon';
-import FontIcon from '../../atoms/font-icon';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const VARIANTS = {
   sm: {

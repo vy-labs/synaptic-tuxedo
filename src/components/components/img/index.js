@@ -3,12 +3,9 @@ import React, { Component } from 'react';
 import { themeGet } from 'styled-system';
 import PropTypes from 'prop-types';
 import hasValue from 'tuxedo/utils/hasValue';
-
-import blink from '../../../keyframes/blink';
-
-// Tuxedo imports
-import FlexBox from '../../atoms/flexbox';
-import NameIcon from '../../components/name-icon';
+import blink from 'tuxedo/keyframes/blink';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import NameIcon from 'tuxedo/components/components/name-icon';
 
 const StyledImg = system(
   {
@@ -38,7 +35,9 @@ const StyledImg = system(
   'display'
 );
 
-/** Image component to show a name icon on image error */
+/**
+ * Image component to show a name icon on image error
+ */
 export default class Img extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +52,8 @@ export default class Img extends Component {
   }
 
   onError() {
-    if (this.state.isError === false) {
+    const { isError } = this.state;
+    if (isError === false) {
       // Prevent infinite loop
       this.setState({
         isError: true,
@@ -103,11 +103,13 @@ export default class Img extends Component {
 }
 
 Img.propTypes = {
-  /** an object to help img render name icon in case of error */
+  /**
+   * An object to help img render name icon in case of error
+   */
   altIcon: PropTypes.shape({
     size: PropTypes.string,
     name: PropTypes.string,
-    color: PropTypes.color
+    color: PropTypes.string
   }),
   showLoading: PropTypes.bool,
   src: PropTypes.string

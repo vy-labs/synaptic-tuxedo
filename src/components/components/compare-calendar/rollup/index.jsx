@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
-
-import FlexBox from '../../../atoms/flexbox';
-import Box from '../../../atoms/box';
-import Text from '../../../atoms/text';
-import Tabs from '../../../components/tabs';
-// import { rollupComponentMap } from '../shared/constants';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Box from 'tuxedo/components/atoms/box';
+import Text from 'tuxedo/components/atoms/text';
+import Tabs from 'tuxedo/components/components/tabs';
 
 const StyledRollUpContainer = styled(FlexBox)`
   border-right: 1px solid ${themeGet('colors.border.default')};

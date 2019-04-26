@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-import Box from '../../atoms/box';
-import FlexBox from '../../atoms/flexbox';
-import Text from '../../atoms/text';
-import Ellipsis from '../../atoms/ellipsis';
-import Dropdown from '../../antd-extensions/dropdown';
-import Menu from '../../antd-extensions/menu';
-// import SvgIcon from '../../components/svg-icon';
-import FontIcon from '../../atoms/font-icon';
+import Box from 'tuxedo/components/atoms/box';
+import FlexBox from 'tuxedo/components/atoms/flexbox';
+import Text from 'tuxedo/components/atoms/text';
+import Ellipsis from 'tuxedo/components/atoms/ellipsis';
+import Dropdown from 'tuxedo/components/antd-extensions/dropdown';
+import Menu from 'tuxedo/components/antd-extensions/menu';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
 
 const StyledLabelContainer = styled(FlexBox)`
   cursor: pointer;
 `;
 
-/** Extension of antd dropDown supports all the props of antd,
+/**
+ * Extension of antd dropDown supports all the props of antd,
  * Create dropdown menu from the items array or overlay component
  */
 export default function ContentDropdown(props) {

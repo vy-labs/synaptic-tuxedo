@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Box from 'tuxedo/components/atoms/box';
 import SingleGroupedOption from './single-grouped-option';
-import Box from '../../atoms/box';
 
 export default function GroupedOptions(props) {
   const {

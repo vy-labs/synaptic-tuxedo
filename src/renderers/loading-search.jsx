@@ -1,6 +1,6 @@
 import React from 'react';
-import FontIcon from '../components/atoms/font-icon';
-import AntdIcon from '../components/antd-extensions/antd-icon';
+import FontIcon from 'tuxedo/components/atoms/font-icon';
+import AntdIcon from 'tuxedo/components/antd-extensions/antd-icon';
 
 import PropTypes from 'prop-types';
 
@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
  */
 export default function RenderLoadingSearch({ loading, showSearch }) {
   if (!loading) {
-    return (showSearch ? <FontIcon size={2} type='icon-Search' /> : null);
+    return showSearch ? <FontIcon size={2} type='icon-Search' /> : null;
   }
-  return (<AntdIcon type='loading' />);
+  return <AntdIcon type='loading' />;
 }
 
 RenderLoadingSearch.propTypes = {
