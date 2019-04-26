@@ -65,6 +65,7 @@ jobs:
         at: ~/synaptic-tuxedo
     # - run: *set-storybook-pl-env
     - run: *yarn
+    - run: *install-aws-cli
     - run:
         name: Setup env
         command: echo 'export STATIC_PATH="${STAGING_STATIC_PATH}"' >> $BASH_ENV
