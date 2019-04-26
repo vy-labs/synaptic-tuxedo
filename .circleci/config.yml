@@ -51,9 +51,9 @@ jobs:
     - run:
         name: Run tests
         command: npm test
-    - run:
-        name: Run linting tests
-        command: npm run lint
+    # - run:
+    #     name: Run linting tests
+    #     command: npm run lint
 
 workflows:
   version: 2
