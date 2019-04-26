@@ -25,8 +25,8 @@
     "lint": "eslint --ext .js,.jsx src",
     "lint:fix": "eslint --fix --ext .js,.jsx src",
     "build": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail",
-    "storybook:build": "rm -rf .out && NODE_ENV=development BUILD_ENV=staging node --max-old-space-size=3072 ./node_modules/.bin/build-storybook -c .storybook -o .out",
-    "build-storybook": "NODE_ENV=development BUILD_ENV=staging node --max-old-space-size=3072 ./node_modules/.bin/build-storybook"
+    "storybook:build": "rm -rf .out && NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook -c .storybook -o .out",
+    "build-storybook": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook"
   },
   "peerDependencies": {
     "react": "16.8.6",
