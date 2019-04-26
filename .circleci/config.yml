@@ -55,6 +55,34 @@ jobs:
         name: Run linting tests
         command: npm run lint
 
+  storybook:
+    <<: *defaults
+    environment:
+      BUILD_FOLDER: master
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/synaptic-tuxedo
+    # - run: *set-storybook-pl-env
+    - run: *yarn
+    - run:
+        name: Setup env
+        command: echo 'export STATIC_PATH="${STAGING_STATIC_PATH}"' >> $BASH_ENV
+    - run:
+        name: Build storybook
+        command: source $BASH_ENV && yarn run build
+        no_output_timeout: 20m
+    - run: *configure-node-modules-path
+    - run:
+        name: Deploy to tuxedo.synaptic.com
+        command: |
+          echo 'export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"' >> $BASH_ENV
+          echo 'export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"' >> $BASH_ENV
+          echo 'export BUILD_BUCKET="${BUILD_BUCKET}"' >> $BASH_ENV
+          echo 'export WEBSITE_BUCKET="${WEBSITE_BUCKET}"' >> $BASH_ENV
+          source $BASH_ENV
+          ./bin/deploy.sh
+
 workflows:
   version: 2
   synaptic-tuxedo:
@@ -65,3 +93,12 @@ workflows:
             only: /.*/
           branches:
             only: /.*/
+
+    - storybook:
+        requires:
+          - build
+        filters:
+          branches:
+            only: /.*/
+          tags:
+            ignore: /.*/
