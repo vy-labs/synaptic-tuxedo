@@ -30,9 +30,9 @@ import hoistNonReactStatics from 'hoist-non-react-statics';
   }
  */
 const StyledCheckbox = styled(Checkbox)`
-${
-  props => (
-    props.color ? `
+  ${props =>
+    props.color
+      ? `
     &.ant-checkbox-wrapper:hover {
       .ant-checkbox-inner {
         border-color: ${props.color};
@@ -59,9 +59,8 @@ ${
         border-color: ${props.color};
       }
     }
-    ` : ''
-  )
-}
+    `
+      : ''}
   .ant-checkbox-checked .ant-checkbox-inner:after {
     ${props => `opacity: ${props.hideInnerTick ? 0 : 1};`}
   }
@@ -76,7 +75,8 @@ ${
     margin: 0px;
   }
 
-  &.ant-checkbox-wrapper + span, .ant-checkbox + span {
+  &.ant-checkbox-wrapper + span,
+  .ant-checkbox + span {
     display: flex;
     align-items: center;
     line-height: initial;
@@ -107,14 +107,10 @@ ${
 `;
 
 StyledCheckbox.displayName = 'Checkbox';
-StyledCheckbox.propTypes = Object.assign(
-  {},
-  Checkbox.propTypes,
-  {
-    color: PropTypes.string,
-    /** hides inner tick */
-    hideInnerTick: PropTypes.bool
-  }
-);
+StyledCheckbox.propTypes = Object.assign({}, Checkbox.propTypes, {
+  color: PropTypes.string,
+  /** hides inner tick */
+  hideInnerTick: PropTypes.bool
+});
 
 export default hoistNonReactStatics(StyledCheckbox, Checkbox);

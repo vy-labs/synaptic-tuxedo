@@ -4,14 +4,17 @@ import { themeGet } from 'styled-system';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 
 // Hoisting before overriding
-const StyledMenu = hoistNonReactStatics(styled(Menu)`
-  &.ant-menu {
-    padding: ${themeGet('space.0')}px
-  }
-  &.ant-dropdown-menu {
-    padding: ${themeGet('space.2')}px;
-  }
-`, Menu);
+const StyledMenu = hoistNonReactStatics(
+  styled(Menu)`
+    &.ant-menu {
+      padding: ${themeGet('space.0')}px;
+    }
+    &.ant-dropdown-menu {
+      padding: ${themeGet('space.2')}px;
+    }
+  `,
+  Menu
+);
 
 StyledMenu.Seperator = styled.hr`
   border-top-color: ${themeGet('colors.border.default')};
@@ -26,12 +29,13 @@ StyledMenu.Static = styled(Menu.Item)`
 `;
 
 StyledMenu.Item = styled(Menu.Item)`
-  ${props => (
-    props.mode !== 'horizontal' ? `
+  ${props =>
+    props.mode !== 'horizontal'
+      ? `
       border-radius: ${themeGet('radii.1')(props)}px;
       font-weight: ${themeGet('fontWeights.semibold')(props)};
-    ` : ''
-  )}
+    `
+      : ''}
 `;
 
 StyledMenu.Seperator.displayName = 'Menu.Seperator';

@@ -23,7 +23,9 @@ const SVGBase = system(
       height = `${themeIconSizes[iconSize]}px`;
       width = height;
     } else {
-      height = themeHeights[propHeight] ? `${themeHeights[propHeight]}px` : propHeight;
+      height = themeHeights[propHeight]
+        ? `${themeHeights[propHeight]}px`
+        : propHeight;
       width = propWidth || height;
     }
 
@@ -33,14 +35,14 @@ const SVGBase = system(
         display: 'flex',
         height,
         width,
-        svg : {
+        svg: {
           height,
           width,
-          ...propsFillColor && {
+          ...(propsFillColor && {
             'path[fill], g[fill]': {
               fill: themeGet(`colors.${propsFillColor}`)(props)
             }
-          }
+          })
         }
       }
     };

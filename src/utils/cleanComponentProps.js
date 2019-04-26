@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const cleanComponentProps = (Component, blacklist = []) => {
-  const removeBlackListProps = (props) => {
+  const removeBlackListProps = props => {
     const cleanedProps = blacklist.reduce((cProps, item) => {
       delete cProps[item];
       return cProps;

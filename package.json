@@ -23,6 +23,7 @@
     "jest:dev": "NODE_ENV=test jest --no-cache --watch --runInBand",
     "start": "start-storybook -p 3003",
     "lint": "eslint --ext .js,.jsx src",
+    "lint:fix": "eslint --fix --ext .js,.jsx src",
     "build": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail"
   },
   "peerDependencies": {
@@ -81,6 +82,7 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-watch": "^4.0.2",
     "extract-text-webpack-plugin": "^3.0.2",

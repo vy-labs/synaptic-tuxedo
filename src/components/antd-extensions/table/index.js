@@ -10,11 +10,13 @@ const StyledTable = system(
   },
 
   props => {
-    return props.fixed ? {
-      table : {
-        tableLayout: 'fixed'
-      }
-    } : {};
+    return props.fixed
+      ? {
+          table: {
+            tableLayout: 'fixed'
+          }
+        }
+      : {};
   },
 
   props => {
@@ -22,9 +24,15 @@ const StyledTable = system(
       'thead > tr > th': {
         cursor: 'default',
         color: themeGet('colors.text.medium')(props),
-        borderTop: `${themeGet('borders.1')(props)}px solid ${themeGet('colors.grey.2')(props)}`,
-        borderBottom: `${themeGet('borders.1')(props)}px solid ${themeGet('colors.grey.2')(props)}`,
-        padding: `${themeGet('space.2')(props)}px ${themeGet('space.4')(props)}px`,
+        borderTop: `${themeGet('borders.1')(props)}px solid ${themeGet(
+          'colors.grey.2'
+        )(props)}`,
+        borderBottom: `${themeGet('borders.1')(props)}px solid ${themeGet(
+          'colors.grey.2'
+        )(props)}`,
+        padding: `${themeGet('space.2')(props)}px ${themeGet('space.4')(
+          props
+        )}px`,
         fontSize: `${themeGet('fontSizes.1')(props)}px`,
         textTransform: 'uppercase',
 
@@ -41,8 +49,12 @@ const StyledTable = system(
   props => {
     return {
       'tbody > tr > td': {
-        borderBottom: `${themeGet('borders.1')(props)}px solid ${themeGet('colors.grey.2')(props)}`,
-        padding: `${themeGet('space.2')(props)}px ${themeGet('space.4')(props)}px`,
+        borderBottom: `${themeGet('borders.1')(props)}px solid ${themeGet(
+          'colors.grey.2'
+        )(props)}`,
+        padding: `${themeGet('space.2')(props)}px ${themeGet('space.4')(
+          props
+        )}px`,
 
         '&.right': {
           textAlign: 'right'
@@ -74,11 +86,13 @@ const StyledTable = system(
       },
 
       'td.gradient-green, td.gradient-green:hover': {
-        background: 'linear-gradient(to top, rgba(56, 217, 166, 0), #1ab16d) !important'
+        background:
+          'linear-gradient(to top, rgba(56, 217, 166, 0), #1ab16d) !important'
       },
 
       'td.gradient-red, td.gradient-red:hover': {
-        background: 'linear-gradient(to top, #e97272, rgba(233, 114, 114, 0)) !important'
+        background:
+          'linear-gradient(to top, #e97272, rgba(233, 114, 114, 0)) !important'
       }
     };
   }

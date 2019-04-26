@@ -9,7 +9,7 @@ const VARIANTS = {
   default: {
     fontWeight: 'bold'
   },
-  light : {
+  light: {
     fontWeight: 'normal'
   }
 };
@@ -20,7 +20,9 @@ const StyledIcon = system(
   },
 
   props => ({
-    fontWeight: themeGet(`fontWeights.${VARIANTS[props.variant].fontWeight}`)(props)
+    fontWeight: themeGet(`fontWeights.${VARIANTS[props.variant].fontWeight}`)(
+      props
+    )
   }),
   'space',
   'color'
@@ -29,7 +31,7 @@ const StyledIcon = system(
 StyledIcon.propTypes = {
   ...StyledIcon.propTypes,
   ...Icon.propTypes,
-  variant : PropTypes.oneOf(Object.keys(VARIANTS))
+  variant: PropTypes.oneOf(Object.keys(VARIANTS))
 };
 
 StyledIcon.defaultProps = {
