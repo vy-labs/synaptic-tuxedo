@@ -1,0 +1,67 @@
+aliases:
+    - &restore-yarn-cache
+      keys:
+      - synaptic-tuxedo-v1-{{ checksum "yarn.lock" }}
+    - &save-yarn-cache
+      key: synaptic-tuxedo-v1-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
+        - ~/synaptic-tuxedo/node_modules
+    - &yarn
+      name: Run Yarn
+      command: yarn
+    # CircleCI does not support interpolating env variables in the environment
+    #  https://circleci.com/docs/2.0/env-vars/#interpolating-environment-variables-to-set-other-environment-variables
+    - &configure-node-modules-path
+      name: Configure node modules Variables
+      command: |
+          echo 'export PATH="${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"' >> $BASH_ENV
+          source $BASH_ENV
+    - &install-aws-cli
+      name: Install aws cli
+      command: |
+        sudo apt-get install python-dev python-pip
+        sudo pip install awscli
+    - &prepare-manifest
+      name: prepare manifest
+      command: ls -R ./build/ | sort -r | grep -i -E '.*\.(js|css)$' > ./build/manifest.txt;
+    - &store-artifacts
+      path: ~/synaptic-tuxedo/build
+      destination: build
+
+defaults: &defaults
+  working_directory: ~/synaptic-tuxedo
+  docker:
+    - image: circleci/node:6-browsers
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/synaptic-tuxedo
+    - restore_cache: *restore-yarn-cache
+    - run: *yarn
+    - save_cache: *save-yarn-cache
+    - persist_to_workspace:
+        root: .
+        paths: node_modules
+    - run:
+        name: Run tests
+        command: npm test
+    - run:
+        name: Run linting tests
+        command: npm run lint
+
+workflows:
+  version: 2
+  synaptic-tuxedo:
+    jobs:
+    - build:
+        filters:
+          tags:
+            only: /.*/
+          branches:
+            only: /.*/
