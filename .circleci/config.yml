@@ -32,7 +32,7 @@ aliases:
 defaults: &defaults
   working_directory: ~/synaptic-tuxedo
   docker:
-    - image: circleci/node:6-browsers
+    - image: circleci/node:8.12-browsers
 
 version: 2
 jobs:
