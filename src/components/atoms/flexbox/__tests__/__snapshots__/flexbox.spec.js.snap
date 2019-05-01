@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - FlexBox> - Rendering Flex support 1`] = `
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c0 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div
+  className="c0 c1 sc-bdVaJa c1"
+>
+  Synaptic FlexBox render test
+</div>
+`;
+
+exports[`<Atoms - FlexBox> - Rendering FlexWrap and flexDirection support 1`] = `
+.c0 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+  className="c0 sc-bdVaJa bDWFJH"
+>
+  Synaptic FlexBox render test
+</div>
+`;
+
+exports[`<Atoms - FlexBox> - Rendering Inline support 1`] = `
+.c0 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+<div
+  className="c0 sc-bdVaJa bDWFJH"
+>
+  Synaptic FlexBox render test
+</div>
+`;
+
+exports[`<Atoms - FlexBox> - Rendering Renders a FlexBox element 1`] = `
+.c0 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="c0 sc-bdVaJa bDWFJH"
+>
+  Synaptic FlexBox render test
+</div>
+`;
+
+exports[`<Atoms - FlexBox> - Rendering alignItems and justifyContent support 1`] = `
+.c0 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+<div
+  className="c0 sc-bdVaJa bDWFJH"
+>
+  Synaptic FlexBox render test
+</div>
+`;
+
+exports[`<Atoms - FlexBox> - Rendering flexBasis and alignContent support 1`] = `
+.c0 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+<div
+  className="c0 sc-bdVaJa bDWFJH"
+>
+  Synaptic FlexBox render test
+</div>
+`;

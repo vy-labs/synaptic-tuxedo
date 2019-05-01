@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - Text> - Rendering Renders a Text element 1`] = `
+<span
+  className=""
+>
+  Lorem Ipsum is simply dummy text.
+</span>
+`;
+
+exports[`<Atoms - Text> - Rendering Text colors 1`] = `
+Array [
+  .c0 {
+  color: #0F213F;
+}
+
+<span
+    className="c0"
+    color="dark"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #47556C;
+}
+
+<span
+    className="c0"
+    color="medium"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #858E9D;
+}
+
+<span
+    className="c0"
+    color="light"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #B71F1F;
+}
+
+<span
+    className="c0"
+    color="red"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #0064D0;
+}
+
+<span
+    className="c0"
+    color="blue"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #00874B;
+}
+
+<span
+    className="c0"
+    color="green"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #E29000;
+}
+
+<span
+    className="c0"
+    color="yellow"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #A3AAB5;
+}
+
+<span
+    className="c0"
+    color="disabled"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+  .c0 {
+  color: #FFFFFF;
+}
+
+<span
+    className="c0"
+    color="white"
+  >
+    Lorem Ipsum is simply dummy text.
+  </span>,
+]
+`;
+
+exports[`<Atoms - Text> - Rendering Text fontSize and fontWeight 1`] = `
+.c0 {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+<span
+  className="c0"
+  fontSize={2}
+>
+  Lorem Ipsum is simply dummy text.
+</span>
+`;

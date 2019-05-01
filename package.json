@@ -1,0 +1,161 @@
+{
+  "name": "synaptic-tuxedo",
+  "version": "0.0.1",
+  "description": "Component library by Synaptic",
+  "keywords": [
+    "react",
+    "styled",
+    "styled-components",
+    "component",
+    "components",
+    "UI",
+    "library",
+    "react-component"
+  ],
+  "main": "src/index.js",
+  "author": {
+    "name": "Ankur Mittal",
+    "email": "ankurmittal092@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --ci --bail",
+    "jest:dev": "NODE_ENV=test jest --no-cache --watch --runInBand",
+    "start": "start-storybook -p 3003",
+    "lint": "eslint --ext .js,.jsx src",
+    "lint:fix": "eslint --fix --ext .js,.jsx src",
+    "build": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail",
+    "storybook:build": "rm -rf .out && NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook -c .storybook -o .out",
+    "build-storybook": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook"
+  },
+  "peerDependencies": {
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  },
+  "dependencies": {
+    "antd": "3.10.1",
+    "classlist-polyfill": "1.2.0",
+    "classnames": "2.2.5",
+    "clean-tag": "2.0.3",
+    "hoist-non-react-statics": "3.2.1",
+    "js-search": "1.4.2",
+    "lodash": "^4.17.11",
+    "moment": "2.20.x",
+    "polished": "1.9.3",
+    "promise": "7.0.4",
+    "prop-types": "15.5.10",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "styled-components": "3.3.3",
+    "styled-system": "3.0.1",
+    "svg-inline-react": "3.0.0",
+    "system-components": "3.0.0",
+    "webpack-cli": "3.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-info": "^5.0.0",
+    "@storybook/addon-knobs": "^5.0.0",
+    "@storybook/addons": "^5.0.0",
+    "@storybook/react": "^5.0.0",
+    "@storybook/theming": "^5.0.6",
+    "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel-minify": "^0.5.0",
+    "babel-plugin-import": "^1.9.1",
+    "babel-preset-minify": "^0.5.0",
+    "babel-runtime": "^6.26.0",
+    "circular-dependency-plugin": "^5.0.2",
+    "core-js": "3",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "es6-promise-promise": "^1.0.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-watch": "^4.0.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "gulp": "3.9.1",
+    "gulp-awspublish": "3.3.0",
+    "gulp-awspublish-router": "^0.2.0",
+    "gulp-rename": "1.2.2",
+    "happypack": "^5.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "jest": "^22.3.0",
+    "jest-styled-components": "^6.3.1",
+    "less": "2.7.2",
+    "less-loader": "4.0.5",
+    "lint-staged": "7.2.0",
+    "merge-stream": "1.0.1",
+    "node-sass": "4.5.3",
+    "nodemon": "1.7.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "1.16.1",
+    "react-hot-loader": "^4.3.11",
+    "react-test-renderer": "16",
+    "style-loader": "0.18.2",
+    "svg-inline-loader": "0.8.0",
+    "terser-webpack-plugin": "^1.1.0",
+    "unused-webpack-plugin": "^2.3.1",
+    "webpack": "^4.20.2",
+    "webpack-dev-server": "^3.1.9",
+    "yargs": "7.0.2"
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "modulePaths": [
+      "<rootDir>/src/"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "svg-inline-react": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "^tuxedo(.*)$": "<rootDir>/src$1",
+      "^theme(.*)$": "<rootDir>/theme$1"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/enzymeSetupFile.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/(?:.+?)",
+      "<rootDir>/tests/",
+      "<rootDir>/build/",
+      "<rootDir>/(?:.+?)/stubs/(?:.+?)"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  }
+}

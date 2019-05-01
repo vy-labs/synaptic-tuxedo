@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - Mono> - Rendering Renders a Mono element 1`] = `
+.c0 {
+  font-family: Roboto Mono,monospace;
+}
+
+<span
+  className="c0 sc-bdVaJa bDWFJH"
+>
+  Synaptic FlexBox render test
+</span>
+`;

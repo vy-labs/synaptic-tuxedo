@@ -1,1 +1,1 @@
-# tuxedo
+# Synaptic tuxedo

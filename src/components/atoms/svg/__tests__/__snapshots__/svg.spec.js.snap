@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - Svg> - Rendering Renders a Svg element of height and width 0 1`] = `
+.c0 {
+  display: inline-block;
+}
+
+.c0 i {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 8px;
+  width: 8px;
+}
+
+.c0 i svg {
+  height: 8px;
+  width: 8px;
+}
+
+<span
+  className="c0"
+>
+  Test
+</span>
+`;
+
+exports[`<Atoms - Svg> - Rendering Renders a Svg element of height and width 1`] = `
+.c0 {
+  display: inline-block;
+  height: 24px;
+  width: 4px;
+}
+
+.c0 i {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 24px;
+  width: 4;
+}
+
+.c0 i svg {
+  height: 24px;
+  width: 4;
+}
+
+<span
+  className="c0"
+  height={3}
+  width={4}
+>
+  Test
+</span>
+`;
+
+exports[`<Atoms - Svg> - Rendering Renders a Svg element of height.. width will be equal to height and vice versa 1`] = `
+.c0 {
+  display: inline-block;
+  height: 24px;
+}
+
+.c0 i {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 24px;
+  width: 24px;
+}
+
+.c0 i svg {
+  height: 24px;
+  width: 24px;
+}
+
+<span
+  className="c0"
+  height={3}
+>
+  Test
+</span>
+`;
+
+exports[`<Atoms - Svg> - Rendering Renders a Svg element of with space props 1`] = `
+.c0 {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.c0 i {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 12px;
+  width: 12px;
+}
+
+.c0 i svg {
+  height: 12px;
+  width: 12px;
+}
+
+<span
+  className="c0"
+  mr={2}
+>
+  Test
+</span>
+`;

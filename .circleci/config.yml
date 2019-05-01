@@ -1,0 +1,105 @@
+aliases:
+    - &restore-yarn-cache
+      keys:
+      - synaptic-tuxedo-v1-{{ checksum "yarn.lock" }}
+    - &save-yarn-cache
+      key: synaptic-tuxedo-v1-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
+        - ~/synaptic-tuxedo/node_modules
+    - &yarn
+      name: Run Yarn
+      command: yarn
+    # CircleCI does not support interpolating env variables in the environment
+    #  https://circleci.com/docs/2.0/env-vars/#interpolating-environment-variables-to-set-other-environment-variables
+    - &configure-node-modules-path
+      name: Configure node modules Variables
+      command: |
+          echo 'export PATH="${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"' >> $BASH_ENV
+          source $BASH_ENV
+    - &install-aws-cli
+      name: Install aws cli
+      command: |
+        sudo apt-get install python-dev python-pip
+        sudo pip install awscli
+    - &prepare-manifest
+      name: prepare manifest
+      command: ls -R ./build/ | sort -r | grep -i -E '.*\.(js|css)$' > ./build/manifest.txt;
+    - &store-artifacts
+      path: ~/synaptic-tuxedo/build
+      destination: build
+
+defaults: &defaults
+  working_directory: ~/synaptic-tuxedo
+  docker:
+    - image: circleci/node:8.12-browsers
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/synaptic-tuxedo
+    - restore_cache: *restore-yarn-cache
+    - run: *yarn
+    - save_cache: *save-yarn-cache
+    - persist_to_workspace:
+        root: .
+        paths: node_modules
+    - run:
+        name: Run tests
+        command: npm test
+    - run:
+        name: Run linting tests
+        command: npm run lint
+
+  storybook:
+    <<: *defaults
+    environment:
+      BUILD_FOLDER: master
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/synaptic-tuxedo
+    # - run: *set-storybook-pl-env
+    - run: *yarn
+    - run: *install-aws-cli
+    - run:
+        name: Setup env
+        command: echo 'export STATIC_PATH="${STAGING_STATIC_PATH}"' >> $BASH_ENV
+    - run:
+        name: Build storybook
+        command: source $BASH_ENV && yarn run storybook:build
+        no_output_timeout: 20m
+    - run: *configure-node-modules-path
+    - run:
+        name: Deploy to tuxedo.synaptic.com
+        command: |
+          echo 'export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"' >> $BASH_ENV
+          echo 'export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"' >> $BASH_ENV
+          echo 'export BUILD_BUCKET="${BUILD_BUCKET}"' >> $BASH_ENV
+          echo 'export WEBSITE_BUCKET="${WEBSITE_BUCKET}"' >> $BASH_ENV
+          source $BASH_ENV
+          ./bin/deploy.sh
+
+workflows:
+  version: 2
+  synaptic-tuxedo:
+    jobs:
+    - build:
+        filters:
+          tags:
+            only: /.*/
+          branches:
+            only: /.*/
+
+    - storybook:
+        requires:
+          - build
+        filters:
+          tags:
+            only: /^v([0-9]+.[0-9]+.[0-9]+)$/
+          branches:
+            ignore: /.*/

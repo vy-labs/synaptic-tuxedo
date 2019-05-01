@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - FontIcon> - Rendering ClassName support 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 8px;
+}
+
+<span
+  className="temp-className icon-Logomark c0"
+  size={0}
+/>
+`;
+
+exports[`<Atoms - FontIcon> - Rendering OnClick support 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 8px;
+}
+
+<span
+  className=" icon-Logomark c0"
+  onClick={[Function]}
+  size={0}
+/>
+`;
+
+exports[`<Atoms - FontIcon> - Rendering Size and color support 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 16px;
+  color: #0071EC;
+}
+
+<span
+  className=" icon-Logomark c0"
+  color="blue"
+  size={2}
+/>
+`;
+
+exports[`<Atoms - FontIcon> - Rendering Type support 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 8px;
+}
+
+<span
+  className=" icon-Logomark c0"
+  size={0}
+/>
+`;

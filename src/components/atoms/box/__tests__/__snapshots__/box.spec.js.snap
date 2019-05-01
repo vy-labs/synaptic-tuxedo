@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Atoms - Box> - Rendering Display support 1`] = `
+.c0 {
+  display: block;
+}
+
+<div
+  className="c0"
+>
+  Synaptic box render test
+</div>
+`;
+
+exports[`<Atoms - Box> - Rendering Flex support 1`] = `
+.c0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div
+  className="c0"
+>
+  Synaptic box render test
+</div>
+`;
+
+exports[`<Atoms - Box> - Rendering Height support 1`] = `
+.c0 {
+  height: 100px;
+  max-height: 200px;
+  min-height: 50px;
+}
+
+<div
+  className="c0"
+>
+  Synaptic box render test
+</div>
+`;
+
+exports[`<Atoms - Box> - Rendering Position support 1`] = `
+.c0 {
+  position: absolute;
+}
+
+<div
+  className="c0"
+>
+  Synaptic box render test
+</div>
+`;
+
+exports[`<Atoms - Box> - Rendering Renders a div element 1`] = `
+<div
+  className=""
+>
+  Synaptic box render test
+</div>
+`;
+
+exports[`<Atoms - Box> - Rendering Space support 1`] = `
+.c0 {
+  margin-bottom: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+<div
+  className="c0"
+>
+  Synaptic box render test
+</div>
+`;
+
+exports[`<Atoms - Box> - Rendering Width support 1`] = `
+.c0 {
+  width: 100px;
+  max-width: 200px;
+  min-width: 50px;
+}
+
+<div
+  className="c0"
+>
+  Synaptic box render test
+</div>
+`;

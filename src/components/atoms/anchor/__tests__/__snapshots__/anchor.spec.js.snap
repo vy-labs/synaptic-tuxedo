@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tuxedo_Atoms - Anchor Renders correctly 1`] = `
+<a
+  className=""
+  href="www.synaptic.io"
+>
+  Synaptic
+</a>
+`;

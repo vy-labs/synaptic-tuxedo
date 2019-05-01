@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tuxedo_AntdExtensions - Button - Rendering Default Button 1`] = `
+.c0 {
+  box-shadow: none;
+  font-weight: 500;
+  line-height: initial;
+}
+
+.c0:hover:not(['disabled']) {
+  background-color: #F9FAFB;
+  border-color: #C9CDD4;
+  color: #0F213F;
+}
+
+<button
+  className="ant-btn c0"
+  onClick={[Function]}
+  title={undefined}
+  type="button"
+>
+  <span>
+    Tuxedo button
+  </span>
+</button>
+`;
+
+exports[`Tuxedo_AntdExtensions - Button - Rendering Primary Button 1`] = `
+.c0 {
+  box-shadow: none;
+  font-weight: 500;
+  line-height: initial;
+}
+
+.c0.ant-btn-primary:hover:not(['disabled']) {
+  background-color: #0064D0;
+  border-color: #0064D0;
+  color: #FFFFFF;
+}
+
+<button
+  className="ant-btn c0 ant-btn-primary"
+  onClick={[Function]}
+  title={undefined}
+  type="button"
+>
+  <span>
+    Tuxedo button
+  </span>
+</button>
+`;
