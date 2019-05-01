@@ -4,10 +4,11 @@ import { ThemeProvider } from 'styled-components';
 import theme from 'theme';
 import Globals from 'tuxedo/globals';
 
-const Provider = ({ children }) => {
+const Provider = ({ children, theme: themeFromProps }) => {
   // Injecting globals here.
-  Globals({ theme });
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  const themeObj = themeFromProps || theme;
+  Globals({ theme: themeObj });
+  return <ThemeProvider theme={themeObj}>{children}</ThemeProvider>;
 };
 
 Provider.propTypes = {
