@@ -4,18 +4,6 @@ const webpack = require('webpack');
 const path = require('path');
 const antdTheme = require('../theme/index.antd');
 
-// const buildTarget = webpackConfig.get('globals').__CRYPTO__ ? 'crypto' : 'main';
-// const NormalModuleReplacementPlugin = webpack.NormalModuleReplacementPlugin;
-// const buildNormalModuleReplacementPlugin = new NormalModuleReplacementPlugin(
-//   /(.*)-BUILDSYSTEM(\.*)/,
-//   function replaceFn(resource) {
-//     resource.request = resource.request.replace(
-//       /-BUILDSYSTEM/,
-//       `-${buildTarget}`
-//     );
-//   }
-// );
-
 module.exports = ({ config, mode }) => {
   const loaderIndex = config.module.rules.findIndex(r => r.test.test('.ttf'));
   if (loaderIndex > -1) {
@@ -53,22 +41,20 @@ module.exports = ({ config, mode }) => {
     );
   }
 
-  config.module.rules.push(
-    {
-      test: /\.less$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        'postcss-loader',
-        {
-          loader: 'less-loader',
-          options: {
-            modifyVars: antdTheme()
-          }
+  config.module.rules.push({
+    test: /\.less$/,
+    use: [
+      'style-loader',
+      'css-loader',
+      'postcss-loader',
+      {
+        loader: 'less-loader',
+        options: {
+          modifyVars: antdTheme()
         }
-      ]
-    }
-  );
+      }
+    ]
+  });
 
   config.resolve.alias = {
     tuxedo: path.resolve(__dirname, '../src'),
