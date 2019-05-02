@@ -17,7 +17,7 @@ Synaptic tuxedo is a [styled-components](https://www.styled-components.com/) bas
 ## Getting Started
 
 Installing `synaptic-tuxedo`
-```
+```js
 // NPM
 npm install synaptic-tuxedo --save
 
@@ -27,7 +27,7 @@ yarn add synaptic-tuxedo
 
 ## Usage
 
-```
+```js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Box, FlexBox } from 'synaptic-tuxedo'
@@ -41,7 +41,7 @@ ReactDOM.render(
 ### Using default theme
 #### Step 1
 Import default tuxedo theme which contains overrides for antd `less` variables
-```
+```js
 // ES6
 import antdTheme from 'synaptic-tuxedo/lib/theme/index.antd';
 
@@ -51,13 +51,13 @@ const antdTheme = require('synaptic-tuxedo/lib/theme/index.antd');
 
 Follow the steps mentioned at [antd/customize-theme](https://ant.design/docs/react/customize-theme) and then in your webpack.config or config-overrides, use:
 
-```
+```js
 modifyVars: antdTheme()
 ```
 #### Step 2
 Use `Provider` at the start of your project.
 
-```
+```js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider, Box, FlexBox } from 'synaptic-tuxedo'
@@ -76,7 +76,7 @@ As mentioned above, synaptic-tuxedo offers support for custom design-system and 
 #### Step 1
 Pass a custom theme object as a prop to `Provider`
 
-```
+```js
 import myTheme from './theme';
 <Provider theme={myTheme}>
 ...
@@ -85,7 +85,7 @@ import myTheme from './theme';
 
 #### Step 2
 For theming antd, pass your theme as an argument to `antdTheme`
-```
+```js
 modifyVars: antdTheme(myTheme)
 ```
 
