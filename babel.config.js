@@ -30,6 +30,7 @@ module.exports = {
     [
       'module-resolver',
       {
+        root: ['./lib'],
         alias: {
           tuxedo: './src',
           theme: './theme'

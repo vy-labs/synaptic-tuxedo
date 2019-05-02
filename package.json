@@ -12,7 +12,7 @@
     "library",
     "react-component"
   ],
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "author": {
     "name": "Ankur Mittal",
     "email": "ankurmittal092@gmail.com"
@@ -24,10 +24,12 @@
     "start": "start-storybook -p 3003",
     "lint": "eslint --ext .js,.jsx src",
     "lint:fix": "eslint --fix --ext .js,.jsx src",
-    "build:lib": "rm -rf lib && babel src --out-dir lib --copy-files",
+    "clean:lib": "rm -rf lib",
+    "build:lib": "npm run clean:lib && babel theme --out-dir lib/theme --copy-files && babel src --out-dir lib/src --copy-files",
     "build": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/webpack/bin/webpack.js --bail",
     "storybook:build": "rm -rf .out && NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook -c .storybook -o .out",
-    "build-storybook": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook"
+    "build-storybook": "NODE_ENV=production node --max-old-space-size=3072 ./node_modules/.bin/build-storybook",
+    "prepublishOnly": "npm run build:lib"
   },
   "peerDependencies": {
     "react": "16.8.6",
