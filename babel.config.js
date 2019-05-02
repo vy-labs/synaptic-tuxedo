@@ -7,7 +7,6 @@ module.exports = {
           '>0.35%, not op_mini >= 0, not and_chr > 0, not and_uc > 0, not android > 0, not opera > 0, not samsung > 0, not op_mini > 0, not op_mob > 0, not ie 11',
         useBuiltIns: 'usage',
         corejs: 3
-        // 'debug': process.env.NODE_ENV === 'development'
       }
     ],
     [
@@ -26,6 +25,16 @@ module.exports = {
       {
         libraryName: 'antd',
         style: true
+      }
+    ],
+    [
+      'module-resolver',
+      {
+        root: ['./lib'],
+        alias: {
+          tuxedo: './src',
+          theme: './theme'
+        }
       }
     ],
     process.env.NODE_ENV === 'development' && 'react-hot-loader/babel'

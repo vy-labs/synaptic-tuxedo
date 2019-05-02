@@ -78,3 +78,8 @@ export {
 } from './components/components/range-selector';
 export { default as Slider } from './components/components/slider';
 export { default as TreeSelect } from './components/components/tree-select';
+
+/**
+ * Provider
+ */
+export { default as Provider } from './provider';

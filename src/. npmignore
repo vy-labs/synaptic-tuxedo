@@ -1,0 +1,15 @@
+__mocks__
+.cirlceci
+.storybook
+bin
+src
+theme
+*.yml
+*.config.js
+*.config.json
+*.config.babel.js
+.eslintignore
+.eslintrc.json
+.gitignore
+enzymeSetupFile.js
+gulpfile.js

@@ -1,241 +1,244 @@
+require('@babel/register');
 import { rgba } from 'polished';
-import Theme from './';
+import DefaultTheme from './';
 
-const { colors, radii, fontSizes, fonts, space, shadows, iconSizes } = Theme;
+module.exports = Theme => {
+  const { colors, radii, fontSizes, fonts, space, shadows, iconSizes } =
+    Theme || DefaultTheme;
+  const themeColors = {
+    'primary-color': colors.blue[6],
+    'info-color': colors.blue[6],
+    'success-color': colors.green[6],
+    'processing-color': colors.blue[6],
+    'error-color': colors.red[6],
+    'highlight-color': colors.red[6],
+    'warning-color': colors.yellow[6],
+    'normal-color': colors.grey[6]
+  };
 
-const themeColors = {
-  'primary-color': colors.blue[6],
-  'info-color': colors.blue[6],
-  'success-color': colors.green[6],
-  'processing-color': colors.blue[6],
-  'error-color': colors.red[6],
-  'highlight-color': colors.red[6],
-  'warning-color': colors.yellow[6],
-  'normal-color': colors.grey[6]
+  const primaryColors = {
+    'primary-1': colors.blue[1],
+    'primary-2': colors.blue[2],
+    'primary-3': colors.blue[3],
+    'primary-4': colors.blue[4],
+    'primary-5': colors.blue[5],
+    'primary-6': colors.blue[6],
+    'primary-7': colors.blue[7],
+    'primary-8': colors.blue[8],
+    'primary-9': colors.blue[9]
+  };
+
+  const scaffolding = {
+    'body-background': colors.black[7],
+    'component-background': colors.white,
+    'font-family-no-number': `${fonts[0]}, ${fonts.roboto}`,
+    'font-family': `${fonts[0]}, ${fonts.roboto}`,
+    'heading-color': colors.text.dark,
+    'text-color': colors.text.dark,
+    'text-color-secondary': colors.text.medium,
+    'font-size-base': `${fontSizes[2]}px`,
+    'font-size-lg': `${fontSizes[3]}px`,
+    'font-size-sm': `${fontSizes[1]}px`,
+    'line-height-base': 1.5,
+    'border-radius-base': `${radii[1]}px`,
+    'border-radius-sm': `${radii[0]}px`
+  };
+
+  // // LINK
+  // @link-color             : @primary-color;
+  // @link-hover-color       : color(~`colorPalette("@{link-color}", 5)`);
+  // @link-active-color      : color(~`colorPalette("@{link-color}", 7)`);
+  // @link-decoration        : none;
+  // @link-hover-decoration  : none;
+  const links = {
+    'link-color': colors.blue[7],
+    'link-hover-color': colors.blue[7],
+    'link-active-color': colors.blue[7],
+    'link-hover-decoration': 'underline'
+  };
+
+  // vertical paddings
+  const padding = {
+    'padding-lg': `${space[6]}px`, // containers
+    'padding-md': `${space[4]}px`, // small containers and buttons
+    'padding-sm': `${space[3]}px`, // Form controls and items
+    'padding-xs': `${space[2]}px` // small items
+  };
+
+  // The background colors for active and hover states for things like
+  // list items or table cells.
+  const itemStates = {
+    'item-active-bg': colors.grey[1],
+    'item-hover-bg': colors.grey[2]
+  };
+
+  // Borders, Outline and backgrounds
+  const bordersAndBg = {
+    'border-color-base': colors.border.input,
+    'border-color-split': colors.border.hover,
+    'background-color-light': colors.grey[0],
+    'background-color-base': colors.grey[2]
+  };
+
+  // Disabled states
+  const disabledStates = {
+    'disabled-color': colors.text.disabled
+  };
+
+  // // Shadow
+  // @shadow-color           : rgba(0, 0, 0, .15);
+  // @box-shadow-base        : @shadow-1-down;
+  // @shadow-1-up            : 0 2px 8px @shadow-color;
+  // @shadow-1-down          : 0 2px 8px @shadow-color;
+  // @shadow-1-left          : -2px 0 8px @shadow-color;
+  // @shadow-1-right         : 2px 0 8px @shadow-color;
+  // @shadow-2               : 0 4px 12px @shadow-color;
+
+  const themeShadows = {
+    'shadow-color': rgba(colors.shadow, 0.08),
+    'box-shadow-base': shadows[3],
+    'shadow-2': shadows[4]
+  };
+
+  // // Input
+  // // ---
+  // @input-height-base           : 32px;
+  // @input-height-lg             : 40px;
+  // @input-height-sm             : 24px;
+  // @input-padding-horizontal    : @control-padding-horizontal - 1px;
+  // @input-padding-horizontal-base: @input-padding-horizontal;
+  // @input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
+  // @input-padding-horizontal-lg : @input-padding-horizontal;
+  // @input-padding-vertical-base : 4px;
+  // @input-padding-vertical-sm   : 1px;
+  // @input-padding-vertical-lg   : 6px;
+  // @input-placeholder-color     : hsv(0, 0, 75%);
+  // @input-color                 : @text-color;
+  // @input-border-color          : @border-color-base;
+  // @input-bg                    : #fff;
+  // @input-addon-bg              : @background-color-light;
+  // @input-hover-border-color    : @primary-color;
+  // @input-disabled-bg           : @disabled-bg;
+  // @input-outline-offset        : 0 0;
+  // // Outline
+  // @outline-blur-size      : 0;
+  // @outline-width          : 2px;
+  // @outline-color          : @primary-color;
+  const inputs = {
+    'outline-width': 0,
+    'outline-color': colors.border.hover, // For focus state
+    'input-color': colors.text.dark,
+    'input-border-color': colors.border.input,
+    'input-hover-border-color': colors.border.hover
+  };
+
+  // // Buttons
+  // @btn-font-weight        : 400;
+  // @btn-border-radius-base : @border-radius-base;
+  // @btn-border-radius-sm   : @border-radius-base;
+  //
+  // @btn-primary-color      : #fff;
+  // @btn-primary-bg         : @primary-color;
+  //
+  // @btn-default-color      : @text-color;
+  // @btn-default-bg         : #fff;
+  // @btn-default-border     : @border-color-base;
+  //
+  // @btn-danger-color       : @error-color;
+  // @btn-danger-bg          : @background-color-base;
+  // @btn-danger-border      : @border-color-base;
+  //
+  // @btn-disable-color      : @disabled-color;
+  // @btn-disable-bg         : @disabled-bg;
+  // @btn-disable-border     : @border-color-base;
+  //
+  // @btn-padding-base       : 0 @padding-md - 1px;
+  // @btn-font-size-lg       : @font-size-lg;
+  // @btn-font-size-sm       : @font-size-base;
+  // @btn-padding-lg         : @btn-padding-base;
+  // @btn-padding-sm         : 0 @padding-xs - 1px;
+  const buttons = {
+    'btn-default-border': colors.border.input
+  };
+
+  // // Table
+  // // --
+  // @table-header-bg: @background-color-light;
+  // @table-header-sort-bg: @background-color-base;
+  // @table-row-hover-bg: @primary-1;
+  // @table-selected-row-bg: #fafafa;
+  // @table-expanded-row-bg: #fbfbfb;
+  // @table-padding-vertical: 16px;
+  // @table-padding-horizontal: 16px;
+  const table = {
+    'table-header-bg': bordersAndBg['background-color-light'],
+    'table-row-hover-bg': colors.grey[1]
+  };
+
+  // // Checkbox
+  // @checkbox-size          : 16px;
+  // @checkbox-color         : @primary-color;
+  // @checkbox-check-color   : #fff;
+
+  const checkbox = {
+    // 'checkbox-size': `${iconSizes[1]}px`,
+    'checkbox-color': colors.blue[6]
+  };
+
+  // // Slider
+  // // ---
+  // @slider-rail-background-color:        @background-color-base;
+  // @slider-rail-background-color-hover:  #e1e1e1;
+  // @slider-track-background-color:       @primary-3;
+  // @slider-track-background-color-hover: @primary-4;
+  // @slider-handle-color:                 @primary-3;
+  // @slider-handle-color-hover:           @primary-4;
+  // @slider-handle-color-focus:           tint(@primary-color, 20%);
+  // @slider-handle-color-focus-shadow:    tint(@primary-color, 50%);
+  // @slider-handle-color-tooltip-open:    @primary-color;
+  // @slider-dot-border-color:             @border-color-split;
+  // @slider-dot-border-color-active:      tint(@primary-color, 50%);
+  // @slider-disabled-color:               @disabled-color;
+  // @slider-disabled-background-color:    @component-background;
+
+  const slider = {
+    'slider-rail-background-color': colors.blue[3],
+    'slider-rail-background-color-hover': colors.blue[3],
+    'slider-track-background-color': primaryColors['primary-6'],
+    'slider-track-background-color-hover': primaryColors['primary-6'],
+    'slider-handle-color': primaryColors['primary-6'],
+    'slider-handle-color-hover': primaryColors['primary-6']
+  };
+
+  // @carousel-dot-width: 16px;
+  // @carousel-dot-height: 3px;
+  // @carousel-dot-active-width: 24px;
+  //
+  // const carousel = {
+  //   'carousel-dot-width': `${space[2]}px`,
+  //   'carousel-dot-height': `${space[2]}px`,
+  //   'carousel-dot-active-width': `${space[2]}px`
+  // };
+
+  return {
+    ...themeColors,
+    ...primaryColors,
+    ...scaffolding,
+    ...padding,
+    ...itemStates,
+    ...bordersAndBg,
+    ...disabledStates,
+    ...themeShadows,
+    ...inputs,
+    ...buttons,
+    ...table,
+    ...checkbox,
+    ...links,
+    ...slider,
+    'input-placeholder-color': colors.text.light,
+    'card-shadow': shadows[3]
+  };
 };
-
-const primaryColors = {
-  'primary-1': colors.blue[1],
-  'primary-2': colors.blue[2],
-  'primary-3': colors.blue[3],
-  'primary-4': colors.blue[4],
-  'primary-5': colors.blue[5],
-  'primary-6': colors.blue[6],
-  'primary-7': colors.blue[7],
-  'primary-8': colors.blue[8],
-  'primary-9': colors.blue[9]
-};
-
-const scaffolding = {
-  'body-background': colors.black[7],
-  'component-background': colors.white,
-  'font-family-no-number': `${fonts[0]}, ${fonts.roboto}`,
-  'font-family': `${fonts[0]}, ${fonts.roboto}`,
-  'heading-color': colors.text.dark,
-  'text-color': colors.text.dark,
-  'text-color-secondary': colors.text.medium,
-  'font-size-base': `${fontSizes[2]}px`,
-  'font-size-lg': `${fontSizes[3]}px`,
-  'font-size-sm': `${fontSizes[1]}px`,
-  'line-height-base': 1.5,
-  'border-radius-base': `${radii[1]}px`,
-  'border-radius-sm': `${radii[0]}px`
-};
-
-// // LINK
-// @link-color             : @primary-color;
-// @link-hover-color       : color(~`colorPalette("@{link-color}", 5)`);
-// @link-active-color      : color(~`colorPalette("@{link-color}", 7)`);
-// @link-decoration        : none;
-// @link-hover-decoration  : none;
-const links = {
-  'link-color': colors.blue[7],
-  'link-hover-color': colors.blue[7],
-  'link-active-color': colors.blue[7],
-  'link-hover-decoration': 'underline'
-};
-
-// vertical paddings
-const padding = {
-  'padding-lg': `${space[6]}px`, // containers
-  'padding-md': `${space[4]}px`, // small containers and buttons
-  'padding-sm': `${space[3]}px`, // Form controls and items
-  'padding-xs': `${space[2]}px` // small items
-};
-
-// The background colors for active and hover states for things like
-// list items or table cells.
-const itemStates = {
-  'item-active-bg': colors.grey[1],
-  'item-hover-bg': colors.grey[2]
-};
-
-// Borders, Outline and backgrounds
-const bordersAndBg = {
-  'border-color-base': colors.border.input,
-  'border-color-split': colors.border.hover,
-  'background-color-light': colors.grey[0],
-  'background-color-base': colors.grey[2]
-};
-
-// Disabled states
-const disabledStates = {
-  'disabled-color': colors.text.disabled
-};
-
-// // Shadow
-// @shadow-color           : rgba(0, 0, 0, .15);
-// @box-shadow-base        : @shadow-1-down;
-// @shadow-1-up            : 0 2px 8px @shadow-color;
-// @shadow-1-down          : 0 2px 8px @shadow-color;
-// @shadow-1-left          : -2px 0 8px @shadow-color;
-// @shadow-1-right         : 2px 0 8px @shadow-color;
-// @shadow-2               : 0 4px 12px @shadow-color;
-
-const themeShadows = {
-  'shadow-color': rgba(colors.shadow, 0.08),
-  'box-shadow-base': shadows[3],
-  'shadow-2': shadows[4]
-};
-
-// // Input
-// // ---
-// @input-height-base           : 32px;
-// @input-height-lg             : 40px;
-// @input-height-sm             : 24px;
-// @input-padding-horizontal    : @control-padding-horizontal - 1px;
-// @input-padding-horizontal-base: @input-padding-horizontal;
-// @input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
-// @input-padding-horizontal-lg : @input-padding-horizontal;
-// @input-padding-vertical-base : 4px;
-// @input-padding-vertical-sm   : 1px;
-// @input-padding-vertical-lg   : 6px;
-// @input-placeholder-color     : hsv(0, 0, 75%);
-// @input-color                 : @text-color;
-// @input-border-color          : @border-color-base;
-// @input-bg                    : #fff;
-// @input-addon-bg              : @background-color-light;
-// @input-hover-border-color    : @primary-color;
-// @input-disabled-bg           : @disabled-bg;
-// @input-outline-offset        : 0 0;
-// // Outline
-// @outline-blur-size      : 0;
-// @outline-width          : 2px;
-// @outline-color          : @primary-color;
-const inputs = {
-  'outline-width': 0,
-  'outline-color': colors.border.hover, // For focus state
-  'input-color': colors.text.dark,
-  'input-border-color': colors.border.input,
-  'input-hover-border-color': colors.border.hover
-};
-
-// // Buttons
-// @btn-font-weight        : 400;
-// @btn-border-radius-base : @border-radius-base;
-// @btn-border-radius-sm   : @border-radius-base;
-//
-// @btn-primary-color      : #fff;
-// @btn-primary-bg         : @primary-color;
-//
-// @btn-default-color      : @text-color;
-// @btn-default-bg         : #fff;
-// @btn-default-border     : @border-color-base;
-//
-// @btn-danger-color       : @error-color;
-// @btn-danger-bg          : @background-color-base;
-// @btn-danger-border      : @border-color-base;
-//
-// @btn-disable-color      : @disabled-color;
-// @btn-disable-bg         : @disabled-bg;
-// @btn-disable-border     : @border-color-base;
-//
-// @btn-padding-base       : 0 @padding-md - 1px;
-// @btn-font-size-lg       : @font-size-lg;
-// @btn-font-size-sm       : @font-size-base;
-// @btn-padding-lg         : @btn-padding-base;
-// @btn-padding-sm         : 0 @padding-xs - 1px;
-const buttons = {
-  'btn-default-border': colors.border.input
-};
-
-// // Table
-// // --
-// @table-header-bg: @background-color-light;
-// @table-header-sort-bg: @background-color-base;
-// @table-row-hover-bg: @primary-1;
-// @table-selected-row-bg: #fafafa;
-// @table-expanded-row-bg: #fbfbfb;
-// @table-padding-vertical: 16px;
-// @table-padding-horizontal: 16px;
-const table = {
-  'table-header-bg': bordersAndBg['background-color-light'],
-  'table-row-hover-bg': colors.grey[1]
-};
-
-// // Checkbox
-// @checkbox-size          : 16px;
-// @checkbox-color         : @primary-color;
-// @checkbox-check-color   : #fff;
-
-const checkbox = {
-  // 'checkbox-size': `${iconSizes[1]}px`,
-  'checkbox-color': colors.blue[6]
-};
-
-// // Slider
-// // ---
-// @slider-rail-background-color:        @background-color-base;
-// @slider-rail-background-color-hover:  #e1e1e1;
-// @slider-track-background-color:       @primary-3;
-// @slider-track-background-color-hover: @primary-4;
-// @slider-handle-color:                 @primary-3;
-// @slider-handle-color-hover:           @primary-4;
-// @slider-handle-color-focus:           tint(@primary-color, 20%);
-// @slider-handle-color-focus-shadow:    tint(@primary-color, 50%);
-// @slider-handle-color-tooltip-open:    @primary-color;
-// @slider-dot-border-color:             @border-color-split;
-// @slider-dot-border-color-active:      tint(@primary-color, 50%);
-// @slider-disabled-color:               @disabled-color;
-// @slider-disabled-background-color:    @component-background;
-
-const slider = {
-  'slider-rail-background-color': colors.blue[3],
-  'slider-rail-background-color-hover': colors.blue[3],
-  'slider-track-background-color': primaryColors['primary-6'],
-  'slider-track-background-color-hover': primaryColors['primary-6'],
-  'slider-handle-color': primaryColors['primary-6'],
-  'slider-handle-color-hover': primaryColors['primary-6']
-};
-
-// @carousel-dot-width: 16px;
-// @carousel-dot-height: 3px;
-// @carousel-dot-active-width: 24px;
-//
-// const carousel = {
-//   'carousel-dot-width': `${space[2]}px`,
-//   'carousel-dot-height': `${space[2]}px`,
-//   'carousel-dot-active-width': `${space[2]}px`
-// };
-
-module.exports = () => ({
-  ...themeColors,
-  ...primaryColors,
-  ...scaffolding,
-  ...padding,
-  ...itemStates,
-  ...bordersAndBg,
-  ...disabledStates,
-  ...themeShadows,
-  ...inputs,
-  ...buttons,
-  ...table,
-  ...checkbox,
-  ...links,
-  ...slider,
-  'input-placeholder-color': colors.text.light,
-  'card-shadow': shadows[3]
-});
 
 // export default antdTheme;
 
